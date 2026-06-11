@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Lexend_Deca, DM_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
@@ -12,6 +13,11 @@ const dmMono = DM_Mono({
   variable: "--font-dm-mono",
   subsets: ["latin"],
   weight: ["400", "500"],
+});
+
+const edosz = localFont({
+  src: "./fonts/edosz.ttf",
+  variable: "--font-edo",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +33,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lexendDeca.variable} ${dmMono.variable} h-full antialiased`}
+      className={`${lexendDeca.variable} ${dmMono.variable} ${edosz.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

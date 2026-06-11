@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function Hero() {
+  const [isGlitching, setIsGlitching] = useState(false);
+
+  useEffect(() => {
+    // Automatically trigger glitch every 4 seconds
+    const interval = setInterval(() => {
+      setIsGlitching(true);
+      setTimeout(() => {
+        setIsGlitching(false);
+      }, 700);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const triggerGlitch = () => {
+    if (!isGlitching) {
+      setIsGlitching(true);
+      setTimeout(() => {
+        setIsGlitching(false);
+      }, 700);
+    }
+  };
+
   return (
     <section
       id="hero"
@@ -10,8 +33,29 @@ export default function Hero() {
         <div className="inline-flex items-center gap-2 bg-accent/8 border border-accent/20 rounded-full px-4 py-[0.35rem] text-[0.78rem] font-mono text-accent mb-8 opacity-0 animate-fade-up-1 before:content-[''] before:w-1.5 before:h-1.5 before:bg-accent before:rounded-full before:animate-[pulse_2s_infinite]">
           Available for new opportunities
         </div>
-        <h1 className="font-sans text-[clamp(2.5rem,6vw,5.5rem)] font-extrabold leading-[1.05] tracking-tighter mb-6 opacity-0 animate-fade-up-2">
-          Gowthama <span className="text-muted">Viknesh <span className="text-accent">K.</span></span>
+        <h1
+          onMouseEnter={triggerGlitch}
+          className="relative font-normal tracking-normal text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.05] mb-6 opacity-0 animate-fade-up-2 select-none cursor-pointer"
+        >
+          {/* Main Name Text Layer */}
+          <span className={`block ${isGlitching ? "animate-glitch" : ""}`}>
+            Gowthama{" "}
+            <span className="text-muted">
+              Viknesh <span className="text-accent">K.</span>
+            </span>
+          </span>
+
+          {/* Glitch Overlay Color-Split Layers */}
+          {isGlitching && (
+            <>
+              <span className="absolute left-0 top-0 w-full block text-center text-accent opacity-80 select-none pointer-events-none animate-glitch-layer-1">
+                Gowthama Viknesh K.
+              </span>
+              <span className="absolute left-0 top-0 w-full block text-center text-accent2 opacity-80 select-none pointer-events-none animate-glitch-layer-2">
+                Gowthama Viknesh K.
+              </span>
+            </>
+          )}
         </h1>
         <p className="text-[1.05rem] text-muted max-w-[850px] leading-[1.85] mb-10 mx-auto opacity-0 animate-fade-up-3">
           Full Stack Software Engineer building production-grade applications —
