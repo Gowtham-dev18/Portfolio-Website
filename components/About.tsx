@@ -48,8 +48,8 @@ export default function About() {
                   />
                 )}
               </div>
-              <div className="absolute bottom-1 right-1 w-4 h-4 bg-[#22c55e] rounded-full border-2 border-bg" />
-              <div className="absolute -top-1.5 -right-2.5 bg-accent text-bg font-mono text-[0.6rem] font-semibold px-[7px] py-[2px] rounded-full light:text-[#f4f3ee]">
+              <div className="absolute bottom-1 right-1 w-4 h-4 bg-accent rounded-full border-2 border-bg" />
+              <div className="absolute -top-1.5 -right-2.5 bg-accent text-bg font-mono text-[0.6rem] font-semibold px-[7px] py-[2px] rounded-full">
                 Open
               </div>
             </div>
@@ -80,9 +80,8 @@ export default function About() {
             {skills.map((skill, index) => (
               <div
                 key={index}
-                className={`bg-bg2 border border-border rounded-[8px] px-[0.9rem] py-[0.6rem] text-[0.78rem] font-mono text-muted transition-all duration-200 cursor-default hover:border-border2 hover:text-text ${
-                  skill.highlight ? "border-accent/20! text-accent!" : ""
-                }`}
+                className={`bg-bg2 border border-border rounded-[8px] px-[0.9rem] py-[0.6rem] text-[0.78rem] font-mono text-muted transition-all duration-200 cursor-default hover:border-border2 hover:text-text ${skill.highlight ? "border-accent/20! text-accent!" : ""
+                  }`}
               >
                 {skill.name}
               </div>

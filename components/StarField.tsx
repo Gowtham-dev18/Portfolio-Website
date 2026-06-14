@@ -45,7 +45,7 @@ export default function StarField() {
         const o = 0.5 + 0.5 * Math.sin(s.t);
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200, 240, 96, ${o * 0.65})`;
+        ctx.fillStyle = `rgba(245, 245, 247, ${o * 0.5})`;
         ctx.fill();
       });
       animationFrameId = requestAnimationFrame(drawStars);

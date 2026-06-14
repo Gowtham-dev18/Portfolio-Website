@@ -1,18 +1,16 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import StarField from "@/components/StarField";
+// import StarField from "@/components/StarField";
 import FloatingTech from "@/components/FloatingTech";
 import Cursor from "@/components/Cursor";
-import CircularBadge from "@/components/CircularBadge";
-
+// import CircularBadge from "@/components/CircularBadge";
 export default function Home() {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,14 +40,14 @@ export default function Home() {
   return (
     <>
       {/* Interactive Background Canvas & Symbols */}
+      {/* Night mode star field — disabled
       <StarField />
+      */}
+      {/* Floating tech background */}
       <FloatingTech />
 
       {/* Smooth trailing custom cursor */}
       <Cursor />
-
-      {/* Navigation Bar */}
-      <Navbar />
 
       {/* Main Content Layout */}
       <main className="relative z-10">
@@ -60,8 +58,9 @@ export default function Home() {
         <Contact />
       </main>
 
-      {/* Floating Badge (Rotating badges with email trigger) */}
+      {/* Floating Badge (Rotating badges with email trigger) — disabled
       <CircularBadge />
+      */}
 
       {/* Footer */}
       <Footer />

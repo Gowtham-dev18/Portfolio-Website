@@ -1,17 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { useTheme } from "./ThemeProvider";
+import React from "react";
+// import { useTheme } from "./ThemeProvider";
 
 export default function CircularBadge() {
-  const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const fill = theme === "dark" ? "#c8f060" : "#5a8a00";
+  // Dark / night mode — disabled
+  // const { theme } = useTheme();
+  // const [mounted, setMounted] = useState(false);
+  // useEffect(() => { setMounted(true); }, []);
+  // const fill = theme === "dark" ? "#ff3b30" : "#d70015";
+  const fill = "var(--color-red)";
 
   return (
     <div className="fixed -top-16 -right-16 w-56 h-56 z-40 pointer-events-none opacity-0 animate-fade-up-badge">
@@ -25,7 +23,7 @@ export default function CircularBadge() {
         <text
           fontSize="12"
           fontFamily="var(--font-mono), monospace"
-          fill={mounted ? fill : "#c8f060"}
+          fill={fill}
           fontWeight="500"
           letterSpacing="4.5"
         >

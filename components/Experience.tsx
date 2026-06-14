@@ -116,7 +116,7 @@ export default function Experience() {
               </ul>
               <div className="flex flex-wrap gap-[0.4rem] mt-4">
                 {exp.tags.map((tag, i) => (
-                  <span key={i} className="bg-white/4 light:bg-black/2 border border-border rounded-full px-[0.7rem] py-[0.2rem] text-[0.7rem] font-mono text-muted">
+                  <span key={i} className="bg-black/2 border border-border rounded-full px-[0.7rem] py-[0.2rem] text-[0.7rem] font-mono text-muted">
                     {tag}
                   </span>
                 ))}

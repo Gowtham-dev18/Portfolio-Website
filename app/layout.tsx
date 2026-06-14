@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lexend_Deca, DM_Mono } from "next/font/google";
+import { Lexend_Deca, DM_Mono, Noto_Sans_JP } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -20,6 +20,16 @@ const edosz = localFont({
   variable: "--font-edo",
 });
 
+const valty = localFont({
+  src: "./fonts/Valty_DEMO.otf",
+  variable: "--font-valty",
+});
+
+const notoSansJP = Noto_Sans_JP({
+  variable: "--font-noto-jp",
+  weight: ["400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Gowthama Viknesh K — Full Stack Engineer",
   description: "Full Stack Software Engineer building production-grade applications — from backend microservices and cloud infra to polished frontend interfaces.",
@@ -33,10 +43,12 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${lexendDeca.variable} ${dmMono.variable} ${edosz.variable} h-full antialiased`}
+      data-theme="light"
+      className={`${lexendDeca.variable} ${dmMono.variable} ${edosz.variable} ${valty.variable} ${notoSansJP.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
+        {/* Dark / night mode — disabled
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -52,6 +64,7 @@ export default function RootLayout({
             `,
           }}
         />
+        */}
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
