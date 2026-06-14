@@ -554,12 +554,23 @@ textarea {
 
 /* Keyframes */
 @keyframes hero-spin-cw {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
+
 @keyframes hero-spin-ccw {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(-360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 /* Wrapper — clamp() only */
@@ -575,7 +586,7 @@ textarea {
   border: 2px solid color-mix(in srgb, var(--color-black) 9%, transparent);
   box-shadow:
     0 24px 56px color-mix(in srgb, var(--color-black) 12%, transparent),
-    0 4px 16px  color-mix(in srgb, var(--color-black) 6%,  transparent),
+    0 4px 16px color-mix(in srgb, var(--color-black) 6%, transparent),
     inset 0 1px 0 color-mix(in srgb, var(--color-white) 80%, transparent);
 }
 
@@ -611,10 +622,9 @@ textarea {
  */
 .hero-orbit-pos {
   transform:
-    translate(-50%, -50%)
-    rotate(var(--orbit-angle))
-    translateY(calc(-1 * var(--orbit-r)));
+    translate(-50%, -50%) rotate(var(--orbit-angle)) translateY(calc(-1 * var(--orbit-r)));
 }
+
 .hero-orbit-counter {
   transform: rotate(calc(-1 * var(--orbit-angle)));
 }
@@ -629,6 +639,7 @@ textarea {
 .hero-ring-dot {
   fill: var(--color-red);
 }
+
 .hero-ring-text {
   font-family: var(--font-mono);
   font-size: 7px;
@@ -636,11 +647,13 @@ textarea {
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
+
 .hero-ring-text--primary {
   fill: var(--color-black);
   font-size: 8.5px;
   letter-spacing: 0.18em;
 }
+
 .hero-ring-text--muted {
   fill: color-mix(in srgb, var(--color-black) 42%, var(--color-bg));
   font-size: 7px;
@@ -1269,4 +1282,76 @@ textarea {
   .hero-name-block.is-glitching .hero-glitch::after {
     animation: none;
   }
+}
+
+/* ─────────────────────────────────────────────
+   Infinite Logo Slider
+   ───────────────────────────────────────────── */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+  background: var(--color-bg2);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Gradient masks for smooth fade-in/out edges */
+.marquee-mask {
+  width: 100%;
+}
+
+.marquee-row {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  user-select: none;
+}
+
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+.animate-marquee-left {
+  animation: marquee-left 25s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 25s linear infinite;
+}
+
+.logo-slider-item {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.logo-slider-item:hover {
+  transform: scale(1.15);
 }

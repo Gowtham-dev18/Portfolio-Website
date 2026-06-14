@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import Hero from "@/components/Hero";
+import LogoSlider from "@/components/LogoSlider";
 import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
@@ -52,6 +53,7 @@ export default function Home() {
       {/* Main Content Layout */}
       <main className="relative z-10">
         <Hero />
+        <LogoSlider />
         <About />
         <Experience />
         <Projects />
