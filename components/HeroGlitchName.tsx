@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 
-const NAME = "Gowthama Viknesh K.";
 const JP = "できる限りのことをして、残りは運命に任せよ。";
 
 export default function HeroGlitchName() {
@@ -22,26 +21,20 @@ export default function HeroGlitchName() {
     };
   }, []);
 
-  if (glitching) {
-    return (
-      <div className="hero-glitch-wrap mb-6">
+  return (
+    <div className={`hero-name-block${glitching ? " is-glitching" : ""}`}>
+      <h1 className="hero-name" aria-hidden={glitching}>
+        Gowthama{" "}
+        <span className="text-accent">Vik</span>
+        <span className="text-text">nesh </span>
+        <span className="text-accent">K.</span>
+      </h1>
+
+      <div className="hero-glitch-wrap" aria-hidden={!glitching}>
         <h1 className="hero-glitch" data-text={JP}>
           {JP}
         </h1>
-        <div className="hero-glitch-glow" aria-hidden="true">
-          {JP}
-        </div>
-        <div className="hero-glitch-scanlines" aria-hidden="true" />
       </div>
-    );
-  }
-
-  return (
-    <h1 className="hero-name mb-6 w-full lg:whitespace-nowrap">
-      Gowthama{" "}
-      <span className="text-text">
-        Viknesh <span className="text-accent">K.</span>
-      </span>
-    </h1>
+    </div>
   );
 }
