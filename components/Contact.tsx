@@ -2,73 +2,235 @@ import React from "react";
 
 export default function Contact() {
   return (
-    <section id="contact" className="px-[5vw] py-24 relative w-full z-10 text-center">
-      <div className="max-w-[580px] mx-auto">
-        <div className="font-mono text-[0.72rem] text-accent tracking-[0.12em] uppercase mb-5 flex items-center gap-2.5 after:content-[''] after:h-[1px] after:w-9 after:bg-accent after:opacity-40 justify-center">
-          Get in touch
-        </div>
-        <h2 className="font-sans text-[clamp(2rem,4vw,2.8rem)] font-bold tracking-tight leading-[1.1] mb-6">
-          Let's work together.
-        </h2>
-        <p className="text-[1rem] text-muted2 mt-[0.75rem]">
-          Open to new opportunities. Whether you have a role in mind or just
-          want to connect — inbox is always open.
-        </p>
-        <div className="flex justify-center gap-[0.85rem] flex-wrap mt-10">
-          <a
-            href="mailto:gowthamaviknesh18@gmail.com"
-            className="inline-flex items-center gap-2 border border-border2 text-muted px-[1.4rem] py-[0.7rem] rounded-full text-[0.83rem] no-underline transition-all duration-200 hover:border-accent hover:text-accent hover:bg-accent/5"
-          >
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              className="inline-block align-middle"
+    <>
+      {/* Philosophy quote */}
+      <section
+        style={{
+          padding: "clamp(56px,7vw,100px) clamp(24px,5vw,64px)",
+          borderBottom: "1px solid #15233f22",
+          background: "#15233f",
+          color: "#f1ede2",
+        }}
+      >
+        <div className="pf-reveal" style={{ maxWidth: "920px" }}>
+          <div style={{ marginBottom: "30px" }}>
+            <span
+              style={{
+                display: "inline-block",
+                background: "#ff5a2b",
+                color: "#f1ede2",
+                padding: "6px 13px",
+                fontSize: "11px",
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+              }}
             >
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            <span className="align-middle">Email me</span>
-          </a>
+              Philosophy
+            </span>
+          </div>
+          <p
+            style={{
+              margin: 0,
+              fontSize: "clamp(24px,3.4vw,46px)",
+              fontWeight: 600,
+              lineHeight: 1.25,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Code is important, but{" "}
+            <span style={{ color: "#ff5a2b" }}>impact is everything.</span> I build digital
+            experiences that users love and businesses trust.
+          </p>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section
+        id="contact"
+        style={{
+          padding: "clamp(64px,8vw,120px) clamp(24px,5vw,64px)",
+          borderBottom: "1px solid #15233f22",
+        }}
+      >
+        {/* Header */}
+        <div
+          className="pf-reveal"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "14px",
+            marginBottom: "28px",
+            flexWrap: "wrap",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-block",
+              background: "#ff5a2b",
+              color: "#f1ede2",
+              padding: "6px 13px",
+              fontSize: "11px",
+              letterSpacing: "0.16em",
+              textTransform: "uppercase",
+            }}
+          >
+            Get in touch
+          </span>
+          <span
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "#5a6480",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <span
+              style={{
+                width: "8px",
+                height: "8px",
+                borderRadius: "50%",
+                background: "#ff5a2b",
+                display: "inline-block",
+              }}
+            />
+            Available for new projects
+          </span>
+        </div>
+
+        {/* Big heading with shadow */}
+        <div
+          className="pf-reveal"
+          style={{ position: "relative", lineHeight: 0.9, marginBottom: "clamp(34px,4.5vw,56px)" }}
+        >
+          <h2
+            style={{
+              margin: 0,
+              fontSize: "clamp(44px,9vw,124px)",
+              fontWeight: 700,
+              letterSpacing: "-0.04em",
+              position: "absolute",
+              top: "5px",
+              left: "5px",
+              color: "#ff5a2b",
+              opacity: 0.85,
+              pointerEvents: "none",
+            }}
+          >
+            LET&apos;S WORK<br />TOGETHER.
+          </h2>
+          <h2
+            style={{
+              margin: 0,
+              fontSize: "clamp(44px,9vw,124px)",
+              fontWeight: 700,
+              letterSpacing: "-0.04em",
+              position: "relative",
+              color: "#15233f",
+            }}
+          >
+            LET&apos;S WORK<br />TOGETHER.
+          </h2>
+        </div>
+
+        {/* Email row */}
+        <a
+          href="mailto:gowthamaviknesh18@gmail.com"
+          className="pf-reveal pf-navlink"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "20px",
+            flexWrap: "wrap",
+            textDecoration: "none",
+            color: "#15233f",
+            borderTop: "1.5px solid #15233f",
+            borderBottom: "1.5px solid #15233f",
+            padding: "clamp(18px,2.4vw,30px) 0",
+          }}
+        >
+          <span style={{ fontSize: "clamp(18px,3vw,40px)", fontWeight: 700, letterSpacing: "-0.02em" }}>
+            gowthamaviknesh18@gmail.com
+          </span>
+          <span style={{ fontSize: "clamp(22px,3vw,40px)", color: "#ff5a2b", lineHeight: 1 }}>→</span>
+        </a>
+
+        {/* Contact tiles */}
+        <div
+          className="pf-reveal"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3,1fr)",
+            gap: "clamp(14px,1.6vw,20px)",
+            marginTop: "clamp(24px,3vw,36px)",
+          }}
+        >
           <a
             href="https://www.linkedin.com/in/gowthamviknesh/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-border2 text-muted px-[1.4rem] py-[0.7rem] rounded-full text-[0.83rem] no-underline transition-all duration-200 hover:border-accent hover:text-accent hover:bg-accent/5"
+            className="pf-tile"
+            style={{
+              textDecoration: "none",
+              color: "#15233f",
+              border: "1px solid #15233f22",
+              padding: "clamp(20px,2vw,28px)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+            }}
           >
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="inline-block align-middle"
-            >
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-            </svg>
-            <span className="align-middle">LinkedIn</span>
+            <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontSize: "16px", fontWeight: 700, letterSpacing: "0.02em" }}>LinkedIn</span>
+              <span style={{ color: "#ff5a2b" }}>↗</span>
+            </span>
+            <span style={{ fontSize: "12px", opacity: 0.6 }}>/in/gowthamviknesh</span>
           </a>
+
           <a
             href="https://github.com/Gowtham-dev18"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 border border-border2 text-muted px-[1.4rem] py-[0.7rem] rounded-full text-[0.83rem] no-underline transition-all duration-200 hover:border-accent hover:text-accent hover:bg-accent/5"
+            className="pf-tile"
+            style={{
+              textDecoration: "none",
+              color: "#15233f",
+              border: "1px solid #15233f22",
+              padding: "clamp(20px,2vw,28px)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+            }}
           >
-            <svg
-              width="15"
-              height="15"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="inline-block align-middle"
-            >
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-            <span className="align-middle">GitHub</span>
+            <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontSize: "16px", fontWeight: 700, letterSpacing: "0.02em" }}>GitHub</span>
+              <span style={{ color: "#ff5a2b" }}>↗</span>
+            </span>
+            <span style={{ fontSize: "12px", opacity: 0.6 }}>/Gowtham-dev18</span>
           </a>
+
+          <div
+            className="pf-tile"
+            style={{
+              color: "#15233f",
+              border: "1px solid #15233f22",
+              padding: "clamp(20px,2vw,28px)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+            }}
+          >
+            <span style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <span style={{ fontSize: "16px", fontWeight: 700, letterSpacing: "0.02em" }}>Based in</span>
+              <span style={{ color: "#ff5a2b" }}>⌖</span>
+            </span>
+            <span style={{ fontSize: "12px", opacity: 0.6 }}>Coimbatore, Tamil Nadu, India</span>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

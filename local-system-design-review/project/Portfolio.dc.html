@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #f1ede2; font-family: 'Spline Sans Mono', monospace; color: #15233f; -webkit-font-smoothing: antialiased; }
+  ::selection { background: #ff5a2b; color: #f1ede2; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes tickerR { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  @keyframes blink { 0%,49% { opacity:1; } 50%,100% { opacity:0; } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  ::-webkit-scrollbar { width: 9px; }
+  ::-webkit-scrollbar-track { background: #e6e0d2; }
+  ::-webkit-scrollbar-thumb { background: #15233f55; }
+  a.pf-link { position: relative; }
+  a.pf-cta-dark:hover { background: #ff5a2b !important; }
+  a.pf-cta-orange:hover { background: #15233f !important; }
+  a.pf-ghost:hover { border-color: #ff5a2b !important; color: #ff5a2b !important; }
+  .pf-card { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+  .pf-card:hover { transform: translateY(-4px); border-color: #ff5a2b !important; box-shadow: 6px 6px 0 #15233f; }
+  .pf-navlink { transition: color .2s ease; }
+  .pf-navlink:hover { color: #ff5a2b; }
+  .pf-tile { transition: background .2s ease, color .2s ease, border-color .2s ease; }
+  .pf-tile:hover { background: #15233f; color: #f1ede2; border-color: #15233f; }
+  .pf-reveal { opacity: 1; transform: none; }
+  @keyframes pfReveal { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .pf-reveal { animation: pfReveal linear both; animation-timeline: view(); animation-range: entry 4% cover 20%; }
+    }
+  }
+</style>
+<script src="./image-slot.js"></script>
+</helmet>
+
+<div style="width:100%; overflow-x:hidden;">
+
+  <!-- ===== TOP TICKER ===== -->
+  <div style="background:#15233f; overflow:hidden; white-space:nowrap; border-bottom:1px solid #15233f;">
+    <div style="display:inline-flex; gap:38px; padding:9px 0; animation:ticker 28s linear infinite; will-change:transform; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#f1ede2;">
+      <span>Full-Stack Engineer</span><span style="color:#ff5a2b;">✦</span><span>Available for work — 2025</span><span style="color:#ff5a2b;">✦</span><span>Node · NestJS · React · AWS</span><span style="color:#ff5a2b;">✦</span><span>600+ users served</span><span style="color:#ff5a2b;">✦</span>
+      <span>Full-Stack Engineer</span><span style="color:#ff5a2b;">✦</span><span>Available for work — 2025</span><span style="color:#ff5a2b;">✦</span><span>Node · NestJS · React · AWS</span><span style="color:#ff5a2b;">✦</span><span>600+ users served</span><span style="color:#ff5a2b;">✦</span>
+    </div>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <nav style="display:flex; justify-content:space-between; align-items:center; padding:20px clamp(24px,5vw,64px); border-bottom:1px solid #15233f22; position:sticky; top:0; z-index:50; background:#f1ede2;">
+    <a href="#top" style="text-decoration:none; color:#15233f; font-size:14px; font-weight:700; letter-spacing:0.06em;">GOWTHAMA VIKNESH K.</a>
+    <div style="display:flex; gap:clamp(16px,2.2vw,34px); font-size:12px; letter-spacing:0.06em;">
+      <a href="#work" class="pf-navlink" style="text-decoration:none; color:#5a6480;">WORK</a>
+      <a href="#about" class="pf-navlink" style="text-decoration:none; color:#5a6480;">ABOUT</a>
+      <a href="#experience" class="pf-navlink" style="text-decoration:none; color:#5a6480;">EXPERIENCE</a>
+      <a href="#contact" class="pf-navlink" style="text-decoration:none; color:#ff5a2b;">CONTACT↗</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="top" style="padding:0;">
+    <div style="padding:clamp(44px,6vw,72px) clamp(24px,5vw,64px) clamp(40px,5vw,60px); display:grid; grid-template-columns:1fr clamp(170px,20vw,272px); gap:clamp(20px,4vw,56px); align-items:center;">
+      <div>
+        <div style="font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:#ff5a2b; margin-bottom:26px;">Full Stack Software Engineer</div>
+        <div style="position:relative; line-height:0.84; margin-bottom:8px;">
+          <h1 style="margin:0; font-size:clamp(52px,9.6vw,132px); font-weight:700; letter-spacing:-0.035em; position:absolute; top:6px; left:6px; color:#ff5a2b; opacity:0.85; pointer-events:none;">SHIP WITH<br>PURPOSE.</h1>
+          <h1 style="margin:0; font-size:clamp(52px,9.6vw,132px); font-weight:700; letter-spacing:-0.035em; position:relative; color:#15233f;" data-comment-anchor="e382d28ab9-h1">SHIP WITH<br>PURPOSE.</h1>
+        </div>
+        <div style="display:grid; grid-template-columns:1.4fr 1fr; gap:clamp(28px,5vw,56px); margin-top:clamp(40px,5vw,68px); align-items:end;">
+          <p style="margin:0; font-size:clamp(14px,1.1vw,16px); line-height:1.8; color:#3a445e; max-width:580px;">I design solutions, build scalable systems, and ship production-grade software — from backend microservices and cloud infrastructure to polished frontend interfaces serving real users.</p>
+          <div style="display:flex; gap:14px; justify-content:flex-start; flex-wrap:wrap;">
+            <a href="mailto:gowthamaviknesh18@gmail.com" class="pf-cta-dark" style="text-decoration:none; background:#15233f; color:#f1ede2; padding:16px 26px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; transition:background .25s ease;">Get in touch →</a>
+            <a href="https://github.com/Gowtham-dev18" target="_blank" rel="noopener noreferrer" class="pf-cta-orange" style="text-decoration:none; background:#ff5a2b; color:#f1ede2; padding:16px 26px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; transition:background .25s ease;">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+      <div style="justify-self:center; position:relative; width:clamp(150px,18vw,250px); aspect-ratio:1;">
+        <svg viewBox="0 0 200 200" style="width:100%; height:100%; animation:spin 20s linear infinite;">
+          <defs><path id="hero-seal" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"></path></defs>
+          <text style="font-size:13.5px; letter-spacing:0.22em; fill:#15233f; font-weight:600;"><textPath href="#hero-seal" startOffset="0">AVAILABLE FOR WORK ✦ 2025 ✦ COIMBATORE, IN ✦ </textPath></text>
+        </svg>
+        <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:clamp(38px,4.6vw,60px); color:#ff5a2b; line-height:1;">↗</span>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid #15233f22;">
+      <div style="padding:26px clamp(24px,5vw,64px); border-right:1px solid #15233f22;"><span style="font-size:clamp(28px,3vw,38px); font-weight:700;">2+</span><div style="font-size:10px; letter-spacing:0.12em; color:#7a8298; text-transform:uppercase; margin-top:6px;">Years exp</div></div>
+      <div style="padding:26px 28px; border-right:1px solid #15233f22;"><span style="font-size:clamp(28px,3vw,38px); font-weight:700;">3</span><div style="font-size:10px; letter-spacing:0.12em; color:#7a8298; text-transform:uppercase; margin-top:6px;">Platforms</div></div>
+      <div style="padding:26px 28px; border-right:1px solid #15233f22;"><span style="font-size:clamp(28px,3vw,38px); font-weight:700; color:#ff5a2b;">600+</span><div style="font-size:10px; letter-spacing:0.12em; color:#7a8298; text-transform:uppercase; margin-top:6px;">Users served</div></div>
+      <div style="padding:26px 28px;"><span style="font-size:clamp(28px,3vw,38px); font-weight:700;">10+</span><div style="font-size:10px; letter-spacing:0.12em; color:#7a8298; text-transform:uppercase; margin-top:6px;">Integrations</div></div>
+    </div>
+  </section>
+
+  <!-- ===== TECH MARQUEE ===== -->
+  <section style="border-bottom:1px solid #15233f22; padding:clamp(36px,4vw,52px) 0;">
+    <div style="padding:0 clamp(24px,5vw,64px); margin-bottom:26px;">
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#ff5a2b;"><span style="display:inline-block; background:#ff5a2b; color:#f1ede2; padding:6px 13px; font-size:11px; letter-spacing:0.16em; text-transform:uppercase;">Tech stacks worked on</span></div>
+    </div>
+    <div style="overflow:hidden; white-space:nowrap; border-top:1px solid #15233f18; border-bottom:1px solid #15233f18; padding:18px 0;">
+      <div style="display:inline-flex; gap:0; animation:ticker 36s linear infinite; will-change:transform;">
+        <span style="display:inline-flex; align-items:center;"><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/nodejs.svg" alt="Node.js" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Node.js</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/nestjs.svg" alt="NestJS" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">NestJS</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/postgressql.svg" alt="PostgreSQL" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">PostgreSQL</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/redis.svg" alt="Redis" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Redis</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/aws.svg" alt="AWS" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">AWS</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/git.svg" alt="Git" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Git</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/postman.svg" alt="Postman" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Postman</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/rabbitmq.svg" alt="RabbitMQ" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">RabbitMQ</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/razorpay-icon.svg" alt="Razorpay" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Razorpay</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/zoho-payments.svg" alt="Zoho Payments" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Zoho Payments</span></span></span>
+        <span data-comment-anchor="a36dea8a6d-span" style="display:inline-flex; align-items:center;"><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/nodejs.svg" alt="Node.js" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Node.js</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/nestjs.svg" alt="NestJS" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">NestJS</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/postgressql.svg" alt="PostgreSQL" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">PostgreSQL</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/redis.svg" alt="Redis" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Redis</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/aws.svg" alt="AWS" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">AWS</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/git.svg" alt="Git" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Git</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/postman.svg" alt="Postman" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Postman</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/rabbitmq.svg" alt="RabbitMQ" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">RabbitMQ</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/razorpay-icon.svg" alt="Razorpay" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Razorpay</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/zoho-payments.svg" alt="Zoho Payments" style="width:32px;height:32px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#15233f;">Zoho Payments</span></span></span>
+      </div>
+    </div>
+    <div style="overflow:hidden; white-space:nowrap; padding:18px 0 0;">
+      <div style="display:inline-flex; gap:0; animation:tickerR 32s linear infinite; will-change:transform;">
+        <span style="display:inline-flex; align-items:center;"><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/react.svg" alt="React" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">React</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/next.svg" alt="Next.js" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Next.js</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/typescript.svg" alt="TypeScript" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">TypeScript</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/tailwind.svg" alt="Tailwind" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Tailwind</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/redux.svg" alt="Redux" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Redux</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/zustand.svg" alt="Zustand" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Zustand</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/vite.svg" alt="Vite" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Vite</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/jest.svg" alt="Jest" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Jest</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/stripe.svg" alt="Stripe" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Stripe</span></span></span>
+        <span style="display:inline-flex; align-items:center;"><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/react.svg" alt="React" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">React</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/next.svg" alt="Next.js" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Next.js</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/typescript.svg" alt="TypeScript" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">TypeScript</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/tailwind.svg" alt="Tailwind" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Tailwind</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/redux.svg" alt="Redux" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Redux</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/zustand.svg" alt="Zustand" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Zustand</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/vite.svg" alt="Vite" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Vite</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/jest.svg" alt="Jest" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Jest</span></span><span style="display:inline-flex; align-items:center; gap:11px; padding:0 26px;"><img src="assets/tech/stripe.svg" alt="Stripe" style="width:30px;height:30px;object-fit:contain;"><span style="font-size:clamp(18px,2vw,26px);font-weight:600;color:#5a6480;">Stripe</span></span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" style="padding:clamp(56px,7vw,96px) clamp(24px,5vw,64px); border-bottom:1px solid #15233f22;">
+    <div class="pf-reveal" data-reveal style="margin-bottom:28px;" data-comment-anchor="0d38014d85-div"><span style="display:inline-block; background:#ff5a2b; color:#f1ede2; padding:6px 13px; font-size:11px; letter-spacing:0.16em; text-transform:uppercase;">About</span></div>
+    <div style="display:grid; grid-template-columns:1.15fr 0.85fr; gap:clamp(32px,5vw,72px); align-items:start;">
+      <div class="pf-reveal" data-reveal>
+        <h2 style="margin:0 0 28px; font-size:clamp(30px,4vw,52px); font-weight:700; line-height:1.06; letter-spacing:-0.025em;">I turn ideas into <span style="color:#ff5a2b;">reliable digital products.</span></h2>
+        <p style="margin:0 0 18px; font-size:clamp(14px,1vw,16px); line-height:1.85; color:#3a445e; max-width:620px;">From backend architecture to polished frontend interfaces, I build production-grade applications end to end — with a focus on performance, security, and a seamless user experience.</p>
+        <p style="margin:0; font-size:clamp(14px,1vw,16px); line-height:1.85; color:#3a445e; max-width:620px;">Currently shipping at scale as a Software Engineer at Noukha Technologies, where I led the full-stack build of a delivery platform serving 600+ users.</p>
+      </div>
+      <div class="pf-reveal" data-reveal style="border:1px solid #15233f22; background:#faf8f2;">
+        <div style="padding:24px 26px; border-bottom:1px solid #15233f18;">
+          <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#9aa0b0; margin-bottom:14px;">Identity</div>
+          <div style="font-size:18px; font-weight:700; letter-spacing:-0.01em;">Gowthama Viknesh K.</div>
+          <div style="font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:#ff5a2b; margin-top:6px;">Full Stack Software Engineer</div>
+          <div style="font-size:12px; color:#5a6480; margin-top:10px;">⌖ Coimbatore, Tamil Nadu, India</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr;">
+          <div style="padding:18px 26px; border-right:1px solid #15233f18; border-bottom:1px solid #15233f18;"><div style="font-size:24px; font-weight:700;">10+</div><div style="font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#9aa0b0; margin-top:4px;">Projects built</div></div>
+          <div style="padding:18px 26px; border-bottom:1px solid #15233f18;"><div style="font-size:24px; font-weight:700;">5+</div><div style="font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#9aa0b0; margin-top:4px;">Domains worked</div></div>
+          <div style="padding:18px 26px; border-right:1px solid #15233f18;"><div style="font-size:24px; font-weight:700; color:#ff5a2b;">100%</div><div style="font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#9aa0b0; margin-top:4px;">Commitment</div></div>
+          <div style="padding:18px 26px;"><div style="font-size:24px; font-weight:700;">Client</div><div style="font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#9aa0b0; margin-top:4px;">Focused approach</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- what drives me -->
+    <div class="pf-reveal" data-reveal style="margin-top:clamp(48px,5vw,72px);" data-comment-anchor="f2133cb26f-div">
+      <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9aa0b0; margin-bottom:22px;">What drives me</div>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,20px);">
+        <div style="background:#15233f; color:#f1ede2; padding:clamp(26px,2.5vw,34px); display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:26px;">
+            <span style="font-size:44px; font-weight:700; line-height:0.9; color:#ff5a2b;">01</span>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#f1ede2" stroke-width="1.6"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="1" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="23"></line><line x1="1" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="23" y2="12"></line></svg>
+          </div>
+          <div style="font-size:15px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; margin-bottom:11px;">Solve Real Problems</div>
+          <p style="margin:0; font-size:13px; line-height:1.75; color:#aeb7c8;">I enjoy building products that solve real-world challenges, not just demos.</p>
+        </div>
+        <div style="background:#ff5a2b; color:#ffffff; padding:clamp(26px,2.5vw,34px); display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:26px;">
+            <span style="font-size:44px; font-weight:700; line-height:0.9; color:#15233f;">02</span>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+          </div>
+          <div style="font-size:15px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; margin-bottom:11px;">Keep It Clean</div>
+          <p style="margin:0; font-size:13px; line-height:1.75; color:#ffe1d6;">Clean code, clear design, and maintainable architecture over shortcuts.</p>
+        </div>
+        <div style="background:#faf8f2; border:1px solid #15233f22; color:#15233f; padding:clamp(26px,2.5vw,34px); display:flex; flex-direction:column;">
+          <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:26px;">
+            <span style="font-size:44px; font-weight:700; line-height:0.9; color:#ff5a2b;">03</span>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#15233f" stroke-width="1.6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </div>
+          <div style="font-size:15px; font-weight:700; letter-spacing:0.03em; text-transform:uppercase; margin-bottom:11px;">Collaborate &amp; Grow</div>
+          <p style="margin:0; font-size:13px; line-height:1.75; color:#5a6480;">I value teamwork, feedback, and continuous improvement on every team.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- how I work -->
+    <div class="pf-reveal" data-reveal style="margin-top:clamp(40px,4vw,56px);">
+      <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#9aa0b0; margin-bottom:22px;">How I work</div>
+      <div style="display:grid; grid-template-columns:repeat(5,1fr); border:1px solid #15233f22;">
+        <div style="padding:22px 20px; border-right:1px solid #15233f22;"><div style="font-size:11px; color:#ff5a2b; margin-bottom:8px;">01</div><div style="font-size:14px; font-weight:700; margin-bottom:6px;">Understand</div><p style="margin:0; font-size:11px; line-height:1.6; color:#7a8298;">Dive deep into the problem.</p></div>
+        <div style="padding:22px 20px; border-right:1px solid #15233f22;"><div style="font-size:11px; color:#ff5a2b; margin-bottom:8px;">02</div><div style="font-size:14px; font-weight:700; margin-bottom:6px;">Plan</div><p style="margin:0; font-size:11px; line-height:1.6; color:#7a8298;">Break it down, choose the right approach.</p></div>
+        <div style="padding:22px 20px; border-right:1px solid #15233f22;"><div style="font-size:11px; color:#ff5a2b; margin-bottom:8px;">03</div><div style="font-size:14px; font-weight:700; margin-bottom:6px;">Build</div><p style="margin:0; font-size:11px; line-height:1.6; color:#7a8298;">Clean, efficient, scalable code.</p></div>
+        <div style="padding:22px 20px; border-right:1px solid #15233f22;"><div style="font-size:11px; color:#ff5a2b; margin-bottom:8px;">04</div><div style="font-size:14px; font-weight:700; margin-bottom:6px;">Test</div><p style="margin:0; font-size:11px; line-height:1.6; color:#7a8298;">Thoroughly, for quality and reliability.</p></div>
+        <div style="padding:22px 20px;"><div style="font-size:11px; color:#ff5a2b; margin-bottom:8px;">05</div><div style="font-size:14px; font-weight:700; margin-bottom:6px;">Deliver</div><p style="margin:0; font-size:11px; line-height:1.6; color:#7a8298;">Ship with confidence, iterate better.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" style="padding:clamp(56px,7vw,96px) clamp(24px,5vw,64px); border-bottom:1px solid #15233f22;">
+    <div class="pf-reveal" data-reveal style="margin-bottom:24px;"><span style="display:inline-block; background:#ff5a2b; color:#f1ede2; padding:6px 13px; font-size:11px; letter-spacing:0.16em; text-transform:uppercase;">Work history</span></div>
+    <h2 class="pf-reveal" data-reveal style="margin:0 0 clamp(36px,4vw,56px); font-size:clamp(30px,4vw,52px); font-weight:700; line-height:1.06; letter-spacing:-0.025em;">Where I've worked.</h2>
+
+    <div class="pf-reveal" data-reveal style="display:grid; grid-template-columns:230px 1fr; gap:clamp(20px,3vw,48px); padding:clamp(28px,3vw,40px) 0; border-top:1px solid #15233f22;">
+      <div>
+        <div style="width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:#15233f; color:#f1ede2; font-size:20px; font-weight:700; margin-bottom:18px;">N</div>
+        <div style="font-size:12px; letter-spacing:0.06em; color:#ff5a2b; margin-bottom:12px;">Apr 2025 — Present</div>
+        <div style="font-size:17px; font-weight:700; letter-spacing:-0.01em;" data-comment-anchor="3c22a8ec63-div">Noukha Technologies</div>
+        <div style="font-size:12px; color:#7a8298; margin-top:5px;">Coimbatore, TN</div>
+      </div>
+      <div>
+        <div style="font-size:clamp(18px,1.6vw,22px); font-weight:700; letter-spacing:-0.02em; margin-bottom:16px;">Software Engineer</div>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Led <strong style="color:#15233f;">full-stack development</strong> of <strong style="color:#15233f;">Cuptime</strong>, a beverage delivery platform serving <strong style="color:#15233f;">600+ users</strong>, owning frontend &amp; backend from architecture to production.</li>
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Integrated <strong style="color:#15233f;">Razorpay, Zoho Payments &amp; Zoho CRM</strong> for seamless payment processing and real-time data sync.</li>
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Built automated <strong style="color:#15233f;">rider assignment &amp; route optimization</strong> using VROOM with fallback flows.</li>
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Deployed on <strong style="color:#15233f;">AWS ECS with Docker</strong>, Cognito auth, and built a Firebase notification microservice.</li>
+        </ul>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:18px;">
+          <span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">Node.js</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">React.js</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">AWS ECS</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">Docker</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">Razorpay</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">Firebase</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">VROOM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pf-reveal" data-reveal style="display:grid; grid-template-columns:230px 1fr; gap:clamp(20px,3vw,48px); padding:clamp(28px,3vw,40px) 0; border-top:1px solid #15233f22;">
+      <div>
+        <div style="width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:#ff5a2b; color:#f1ede2; font-size:20px; font-weight:700; margin-bottom:18px;">D</div>
+        <div style="font-size:12px; letter-spacing:0.06em; color:#7a8298; margin-bottom:12px;">Feb 2024 — Mar 2025</div>
+        <div style="font-size:17px; font-weight:700; letter-spacing:-0.01em;">Datalligence.AI</div>
+        <div style="font-size:12px; color:#7a8298; margin-top:5px;">Chennai, TN</div>
+      </div>
+      <div>
+        <div style="font-size:clamp(18px,1.6vw,22px); font-weight:700; letter-spacing:-0.02em; margin-bottom:16px;">Junior Backend Developer</div>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Owned a production <strong style="color:#15233f;">microservices architecture</strong> with Node.js &amp; Express.js, shipping attendance, reporting, and assessment modules.</li>
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Designed scalable <strong style="color:#15233f;">RESTful APIs</strong> and integrated Jira for workflow automation and cross-system sync.</li>
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Led migration from <strong style="color:#15233f;">JavaScript to TypeScript</strong>, enforcing type safety and reducing runtime errors.</li>
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Managed <strong style="color:#15233f;">AWS (EC2, SES, SQS)</strong> with PostgreSQL schema design and collaborated on VAPT security assessments.</li>
+        </ul>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:18px;">
+          <span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">Node.js</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">Express.js</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">TypeScript</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">PostgreSQL</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">AWS</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">VAPT</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pf-reveal" data-reveal style="display:grid; grid-template-columns:230px 1fr; gap:clamp(20px,3vw,48px); padding:clamp(28px,3vw,40px) 0; border-top:1px solid #15233f22; border-bottom:1px solid #15233f22;">
+      <div>
+        <div style="width:48px; height:48px; display:flex; align-items:center; justify-content:center; background:transparent; border:1.5px solid #15233f; color:#15233f; font-size:20px; font-weight:700; margin-bottom:18px;">H</div>
+        <div style="font-size:12px; letter-spacing:0.06em; color:#7a8298; margin-bottom:12px;">Dec 2023 — Feb 2024</div>
+        <div style="font-size:17px; font-weight:700; letter-spacing:-0.01em;">Hashh Automations</div>
+        <div style="font-size:12px; color:#7a8298; margin-top:5px;">Udumalaippettai, TN</div>
+      </div>
+      <div>
+        <div style="font-size:clamp(18px,1.6vw,22px); font-weight:700; letter-spacing:-0.02em; margin-bottom:16px;">Frontend Developer Intern</div>
+        <ul style="list-style:none; margin:0; padding:0;">
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Built responsive UI with <strong style="color:#15233f;">React.js &amp; Ant Design</strong>, translating Figma wireframes into production-ready interfaces.</li>
+          <li style="font-size:13px; line-height:1.75; color:#3a445e; padding:7px 0 7px 22px; position:relative;"><span style="position:absolute; left:0; color:#ff5a2b;">→</span> Developed pages for an automation web app with seamless API integration and smooth backend collaboration.</li>
+        </ul>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:18px;">
+          <span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">React.js</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">Ant Design</span><span style="font-size:11px; padding:5px 11px; border:1px solid #15233f22; color:#5a6480;">Figma</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="work" style="padding:clamp(56px,7vw,96px) clamp(24px,5vw,64px); border-bottom:1px solid #15233f22;">
+    <div class="pf-reveal" data-reveal style="margin-bottom:24px;"><span style="display:inline-block; background:#ff5a2b; color:#f1ede2; padding:6px 13px; font-size:11px; letter-spacing:0.16em; text-transform:uppercase;">Selected work</span></div>
+    <h2 class="pf-reveal" data-reveal style="margin:0 0 clamp(36px,4vw,56px); font-size:clamp(30px,4vw,52px); font-weight:700; line-height:1.06; letter-spacing:-0.025em;">Things I've built.</h2>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:clamp(20px,2.5vw,32px);">
+      <div class="pf-card pf-reveal" data-reveal style="border:1px solid #15233f22; background:#faf8f2; display:grid; grid-template-columns:clamp(120px,18%,180px) 1fr;" data-comment-anchor="6ce143898a-div">
+        <div style="background:#15233f; overflow:hidden; min-height:240px;"><image-slot id="proj-chat" shape="rect" fit="cover" style="width:100%; height:100%; display:block;" placeholder="Drop screenshot"></image-slot></div>
+        <div style="padding:clamp(28px,3vw,40px); display:flex; flex-direction:column;">
+        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#7a8298; margin-bottom:28px;">01 / Personal project</div>
+        <div style="font-size:clamp(20px,2vw,26px); font-weight:700; letter-spacing:-0.02em; margin-bottom:14px;">Chat Application</div>
+        <p style="margin:0 0 22px; font-size:13px; line-height:1.8; color:#3a445e;">Multi-tenant SaaS real-time chat platform with complete tenant isolation, Socket.io messaging, JWT auth, tenant-aware middleware, and a modular RESTful API.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px;">
+          <span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">React.js</span><span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">Node.js</span><span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">Socket.io</span><span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">JWT</span><span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">MongoDB</span><span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">SaaS</span>
+        </div>
+        <a href="https://github.com/GowthamaViknesh/Chating-App" target="_blank" rel="noopener noreferrer" class="pf-ghost" style="margin-top:auto; text-decoration:none; align-self:flex-start; font-size:12px; letter-spacing:0.06em; color:#15233f; border-bottom:1px solid #15233f; padding-bottom:3px; transition:color .2s, border-color .2s;">View on GitHub ↗</a>
+        </div>
+      </div>
+      <div class="pf-card pf-reveal" data-reveal style="border:1px solid #15233f22; background:#faf8f2; display:grid; grid-template-columns:clamp(120px,18%,180px) 1fr;">
+        <div style="background:#15233f; overflow:hidden; min-height:240px;"><image-slot id="proj-cuptime" shape="rect" fit="cover" style="width:100%; height:100%; display:block;" placeholder="Drop screenshot"></image-slot></div>
+        <div style="padding:clamp(28px,3vw,40px); display:flex; flex-direction:column;">
+        <div style="font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#7a8298; margin-bottom:28px;">02 / Production</div>
+        <div style="font-size:clamp(20px,2vw,26px); font-weight:700; letter-spacing:-0.02em; margin-bottom:14px;">Cuptime — Delivery Platform</div>
+        <p style="margin:0 0 22px; font-size:13px; line-height:1.8; color:#3a445e;">Led full-stack development of a high-volume beverage delivery platform. Integrated payment gateways, VROOM routing, and deployed on AWS ECS serving 600+ users.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px;">
+          <span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">React.js</span><span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">NestJS</span><span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">AWS ECS</span><span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">Docker</span><span style="font-size:11px; padding:5px 11px; border:1px solid #ff5a2b33; color:#ff5a2b; background:#ff5a2b0d;">Razorpay</span>
+        </div>
+        <span style="margin-top:auto; align-self:flex-start; font-size:12px; letter-spacing:0.06em; color:#9aa0b0; display:inline-flex; align-items:center; gap:7px;">🔒 Private — production app</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUOTE ===== -->
+  <section style="padding:clamp(56px,7vw,100px) clamp(24px,5vw,64px); border-bottom:1px solid #15233f22; background:#15233f; color:#f1ede2;">
+    <div class="pf-reveal" data-reveal style="max-width:920px;">
+      <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#ff5a2b; margin-bottom:30px;"><span style="display:inline-block; background:#ff5a2b; color:#f1ede2; padding:6px 13px; font-size:11px; letter-spacing:0.16em; text-transform:uppercase;">Philosophy</span></div>
+      <p style="margin:0; font-size:clamp(24px,3.4vw,46px); font-weight:600; line-height:1.25; letter-spacing:-0.02em;">Code is important, but <span style="color:#ff5a2b;">impact is everything.</span> I build digital experiences that users love and businesses trust.</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" style="padding:clamp(64px,8vw,120px) clamp(24px,5vw,64px); border-bottom:1px solid #15233f22;" data-comment-anchor="275ea2a4b9-section">
+    <div class="pf-reveal" data-reveal style="display:flex; align-items:center; gap:14px; margin-bottom:28px; flex-wrap:wrap;">
+      <span style="display:inline-block; background:#ff5a2b; color:#f1ede2; padding:6px 13px; font-size:11px; letter-spacing:0.16em; text-transform:uppercase;">Get in touch</span>
+      <span style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#5a6480; display:inline-flex; align-items:center; gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#ff5a2b;display:inline-block;"></span> Available for new projects</span>
+    </div>
+
+    <div class="pf-reveal" data-reveal style="position:relative; line-height:0.9; margin-bottom:clamp(34px,4.5vw,56px);">
+      <h2 style="margin:0; font-size:clamp(44px,9vw,124px); font-weight:700; letter-spacing:-0.04em; position:absolute; top:5px; left:5px; color:#ff5a2b; opacity:0.85; pointer-events:none;">LET'S WORK<br>TOGETHER.</h2>
+      <h2 style="margin:0; font-size:clamp(44px,9vw,124px); font-weight:700; letter-spacing:-0.04em; position:relative; color:#15233f;">LET'S WORK<br>TOGETHER.</h2>
+    </div>
+
+    <a href="mailto:gowthamaviknesh18@gmail.com" class="pf-reveal pf-navlink" data-reveal style="display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; text-decoration:none; color:#15233f; border-top:1.5px solid #15233f; border-bottom:1.5px solid #15233f; padding:clamp(18px,2.4vw,30px) 0;">
+      <span style="font-size:clamp(18px,3vw,40px); font-weight:700; letter-spacing:-0.02em;">gowthamaviknesh18@gmail.com</span>
+      <span style="font-size:clamp(22px,3vw,40px); color:#ff5a2b; line-height:1;">→</span>
+    </a>
+
+    <div class="pf-reveal" data-reveal style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,20px); margin-top:clamp(24px,3vw,36px);">
+      <a href="https://www.linkedin.com/in/gowthamviknesh/" target="_blank" rel="noopener noreferrer" class="pf-tile" style="text-decoration:none; color:#15233f; border:1px solid #15233f22; padding:clamp(20px,2vw,28px); display:flex; flex-direction:column; gap:10px;">
+        <span style="display:flex; justify-content:space-between; align-items:center;"><span style="font-size:16px; font-weight:700; letter-spacing:0.02em;">LinkedIn</span><span style="color:#ff5a2b;">↗</span></span>
+        <span style="font-size:12px; opacity:0.6;">/in/gowthamviknesh</span>
+      </a>
+      <a href="https://github.com/Gowtham-dev18" target="_blank" rel="noopener noreferrer" class="pf-tile" style="text-decoration:none; color:#15233f; border:1px solid #15233f22; padding:clamp(20px,2vw,28px); display:flex; flex-direction:column; gap:10px;">
+        <span style="display:flex; justify-content:space-between; align-items:center;"><span style="font-size:16px; font-weight:700; letter-spacing:0.02em;">GitHub</span><span style="color:#ff5a2b;">↗</span></span>
+        <span style="font-size:12px; opacity:0.6;">/Gowtham-dev18</span>
+      </a>
+      <div class="pf-tile" style="color:#15233f; border:1px solid #15233f22; padding:clamp(20px,2vw,28px); display:flex; flex-direction:column; gap:10px;">
+        <span style="display:flex; justify-content:space-between; align-items:center;"><span style="font-size:16px; font-weight:700; letter-spacing:0.02em;">Based in</span><span style="color:#ff5a2b;">⌖</span></span>
+        <span style="font-size:12px; opacity:0.6;">Coimbatore, Tamil Nadu, India</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:14px; padding:28px clamp(24px,5vw,64px);">
+    <span style="font-size:12px; letter-spacing:0.06em; color:#7a8298;">© 2025 Gowthama Viknesh K.</span>
+    <span style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:#9aa0b0;">Designed &amp; built with purpose · Coimbatore, IN</span>
+    <a href="#top" class="pf-navlink" style="text-decoration:none; font-size:12px; letter-spacing:0.06em; color:#15233f;">Back to top ↑</a>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  // Scroll-reveal is handled with a CSS view() timeline (see .pf-reveal),
+  // so content is always visible even if no JS/scroll-timeline support exists.
+}
+</script>
+</body>
+</html>

@@ -1,130 +1,194 @@
 import React from "react";
 
-interface ExpItem {
+interface ExpEntry {
+  badge: string;
+  badgeBg: string;
+  badgeColor: string;
+  badgeBorder?: string;
   date: string;
+  dateColor: string;
   company: string;
   location: string;
   role: string;
-  responsibilities: React.ReactNode[];
+  bullets: React.ReactNode[];
   tags: string[];
 }
 
-export default function Experience() {
-  const experiences: ExpItem[] = [
-    {
-      date: "Apr 2025 — Present",
-      company: "Noukha Technologies",
-      location: "Coimbatore, TN",
-      role: "Software Engineer",
-      responsibilities: [
-        <>
-          Led <strong>full-stack development</strong> of <strong>Cuptime</strong>, a beverage delivery
-          platform serving <strong>600+ users</strong>, owning frontend and backend from architecture
-          to production.
-        </>,
-        <>
-          Integrated <strong>Razorpay, Zoho Payments & Zoho CRM</strong> for seamless payment
-          processing and real-time data sync.
-        </>,
-        <>
-          Built automated <strong>rider assignment & route optimization</strong> using VROOM with
-          fallback flows.
-        </>,
-        <>
-          Contributed at architecture and dev level to <strong>Ohana</strong> (restaurant) and{" "}
-          <strong>Naga</strong> (delivery) platforms.
-        </>,
-        <>
-          Deployed on <strong>AWS ECS with Docker</strong>, Cognito auth, and built Firebase
-          notification microservice.
-        </>,
-      ],
-      tags: ["Node.js", "React.js", "AWS ECS", "Docker", "Razorpay", "Firebase", "VROOM"],
-    },
-    {
-      date: "Feb 2024 — Mar 2025",
-      company: "Datalligence.AI",
-      location: "Chennai, TN",
-      role: "Junior Backend Developer",
-      responsibilities: [
-        <>
-          Owned a production <strong>microservices architecture</strong> using Node.js & Express.js,
-          shipping attendance, reporting, and assessment modules.
-        </>,
-        <>
-          Designed scalable <strong>RESTful APIs</strong> and integrated <strong>Jira</strong> for
-          workflow automation and cross-system sync.
-        </>,
-        <>
-          Led migration from <strong>JavaScript to TypeScript</strong>, enforcing type safety and
-          reducing runtime errors.
-        </>,
-        <>
-          Managed <strong>AWS (EC2, SES, SQS)</strong> alongside PostgreSQL schema design and query
-          optimization.
-        </>,
-        <>
-          Collaborated on <strong>VAPT</strong> security assessments and resolved all identified
-          vulnerabilities.
-        </>,
-      ],
-      tags: ["Node.js", "Express.js", "TypeScript", "PostgreSQL", "AWS", "VAPT"],
-    },
-    {
-      date: "Dec 2023 — Feb 2024",
-      company: "Hashh Automations",
-      location: "Udumalaippettai, TN",
-      role: "Frontend Developer Intern",
-      responsibilities: [
-        <>
-          Built responsive UI with <strong>React.js & Ant Design</strong>, translating Figma
-          wireframes into production-ready interfaces.
-        </>,
-        <>
-          Developed pages for an <strong>automation web app</strong> with seamless API integration and
-          smooth backend collaboration.
-        </>,
-      ],
-      tags: ["React.js", "Ant Design", "Figma"],
-    },
-  ];
+const experiences: ExpEntry[] = [
+  {
+    badge: "N",
+    badgeBg: "#15233f",
+    badgeColor: "#f1ede2",
+    date: "Apr 2025 — Present",
+    dateColor: "#ff5a2b",
+    company: "Noukha Technologies",
+    location: "Coimbatore, TN",
+    role: "Software Engineer",
+    bullets: [
+      <>Led <strong style={{ color: "#15233f" }}>full-stack development</strong> of <strong style={{ color: "#15233f" }}>Cuptime</strong>, a beverage delivery platform serving <strong style={{ color: "#15233f" }}>600+ users</strong>, owning frontend &amp; backend from architecture to production.</>,
+      <>Integrated <strong style={{ color: "#15233f" }}>Razorpay, Zoho Payments &amp; Zoho CRM</strong> for seamless payment processing and real-time data sync.</>,
+      <>Built automated <strong style={{ color: "#15233f" }}>rider assignment &amp; route optimization</strong> using VROOM with fallback flows.</>,
+      <>Deployed on <strong style={{ color: "#15233f" }}>AWS ECS with Docker</strong>, Cognito auth, and built a Firebase notification microservice.</>,
+    ],
+    tags: ["Node.js", "React.js", "AWS ECS", "Docker", "Razorpay", "Firebase", "VROOM"],
+  },
+  {
+    badge: "D",
+    badgeBg: "#ff5a2b",
+    badgeColor: "#f1ede2",
+    date: "Feb 2024 — Mar 2025",
+    dateColor: "#7a8298",
+    company: "Datalligence.AI",
+    location: "Chennai, TN",
+    role: "Junior Backend Developer",
+    bullets: [
+      <>Owned a production <strong style={{ color: "#15233f" }}>microservices architecture</strong> with Node.js &amp; Express.js, shipping attendance, reporting, and assessment modules.</>,
+      <>Designed scalable <strong style={{ color: "#15233f" }}>RESTful APIs</strong> and integrated Jira for workflow automation and cross-system sync.</>,
+      <>Led migration from <strong style={{ color: "#15233f" }}>JavaScript to TypeScript</strong>, enforcing type safety and reducing runtime errors.</>,
+      <>Managed <strong style={{ color: "#15233f" }}>AWS (EC2, SES, SQS)</strong> with PostgreSQL schema design and collaborated on VAPT security assessments.</>,
+    ],
+    tags: ["Node.js", "Express.js", "TypeScript", "PostgreSQL", "AWS", "VAPT"],
+  },
+  {
+    badge: "H",
+    badgeBg: "transparent",
+    badgeColor: "#15233f",
+    badgeBorder: "1.5px solid #15233f",
+    date: "Dec 2023 — Feb 2024",
+    dateColor: "#7a8298",
+    company: "Hashh Automations",
+    location: "Udumalaippettai, TN",
+    role: "Frontend Developer Intern",
+    bullets: [
+      <>Built responsive UI with <strong style={{ color: "#15233f" }}>React.js &amp; Ant Design</strong>, translating Figma wireframes into production-ready interfaces.</>,
+      <>Developed pages for an automation web app with seamless API integration and smooth backend collaboration.</>,
+    ],
+    tags: ["React.js", "Ant Design", "Figma"],
+  },
+];
 
+export default function Experience() {
   return (
-    <section id="experience" className="px-[5vw] py-24 relative w-full z-10">
-      <div className="font-mono text-[0.72rem] text-accent tracking-[0.12em] uppercase mb-5 flex items-center gap-2.5 after:content-[''] after:h-[1px] after:w-9 after:bg-accent after:opacity-40">
-        Work history
+    <section
+      id="experience"
+      style={{ padding: "clamp(56px,7vw,96px) clamp(24px,5vw,64px)", borderBottom: "1px solid #15233f22" }}
+    >
+      {/* Section label */}
+      <div className="pf-reveal" style={{ marginBottom: "24px" }}>
+        <span
+          style={{
+            display: "inline-block",
+            background: "#ff5a2b",
+            color: "#f1ede2",
+            padding: "6px 13px",
+            fontSize: "11px",
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+          }}
+        >
+          Work history
+        </span>
       </div>
-      <h2 className="font-sans text-[clamp(2rem,4vw,2.8rem)] font-bold tracking-tight leading-[1.1] mb-6">
-        Where I've worked.
+
+      <h2
+        className="pf-reveal"
+        style={{
+          margin: "0 0 clamp(36px,4vw,56px)",
+          fontSize: "clamp(30px,4vw,52px)",
+          fontWeight: 700,
+          lineHeight: 1.06,
+          letterSpacing: "-0.025em",
+        }}
+      >
+        Where I&apos;ve worked.
       </h2>
-      <div className="flex flex-col">
-        {experiences.map((exp, index) => (
-          <div key={index} className="grid grid-cols-1 md:grid-cols-[190px_1fr] gap-6 md:gap-[3rem] py-10 border-b border-border exp-item">
-            <div className="flex flex-col">
-              <div className="font-mono text-[0.72rem] text-muted mb-[0.4rem]">{exp.date}</div>
-              <div className="font-sans text-[0.92rem] font-bold text-text mb-[0.2rem]">{exp.company}</div>
-              <div className="text-[0.76rem] text-muted">{exp.location}</div>
+
+      {experiences.map((exp, index) => (
+        <div
+          key={index}
+          className="pf-reveal"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "230px 1fr",
+            gap: "clamp(20px,3vw,48px)",
+            padding: "clamp(28px,3vw,40px) 0",
+            borderTop: "1px solid #15233f22",
+            borderBottom: index === experiences.length - 1 ? "1px solid #15233f22" : undefined,
+          }}
+        >
+          {/* Left: badge + meta */}
+          <div>
+            <div
+              style={{
+                width: "48px",
+                height: "48px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: exp.badgeBg,
+                color: exp.badgeColor,
+                border: exp.badgeBorder,
+                fontSize: "20px",
+                fontWeight: 700,
+                marginBottom: "18px",
+              }}
+            >
+              {exp.badge}
             </div>
-            <div>
-              <div className="font-sans text-[1.3rem] font-bold tracking-tight mb-[0.9rem]">{exp.role}</div>
-              <ul className="list-none">
-                {exp.responsibilities.map((resp, i) => (
-                  <li key={i} className="text-[0.9rem] text-muted2 py-[0.35rem] pl-[1.2rem] relative leading-[1.7] before:content-['→'] before:absolute before:left-0 before:text-accent before:text-[0.72rem] before:top-[0.55rem]">
-                    {resp}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap gap-[0.4rem] mt-4">
-                {exp.tags.map((tag, i) => (
-                  <span key={i} className="bg-black/2 border border-border rounded-full px-[0.7rem] py-[0.2rem] text-[0.7rem] font-mono text-muted">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            <div style={{ fontSize: "12px", letterSpacing: "0.06em", color: exp.dateColor, marginBottom: "12px" }}>
+              {exp.date}
+            </div>
+            <div style={{ fontSize: "17px", fontWeight: 700, letterSpacing: "-0.01em" }}>{exp.company}</div>
+            <div style={{ fontSize: "12px", color: "#7a8298", marginTop: "5px" }}>{exp.location}</div>
+          </div>
+
+          {/* Right: role + bullets + tags */}
+          <div>
+            <div
+              style={{
+                fontSize: "clamp(18px,1.6vw,22px)",
+                fontWeight: 700,
+                letterSpacing: "-0.02em",
+                marginBottom: "16px",
+              }}
+            >
+              {exp.role}
+            </div>
+            <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+              {exp.bullets.map((bullet, i) => (
+                <li
+                  key={i}
+                  style={{
+                    fontSize: "13px",
+                    lineHeight: 1.75,
+                    color: "#3a445e",
+                    padding: "7px 0 7px 22px",
+                    position: "relative",
+                  }}
+                >
+                  <span style={{ position: "absolute", left: 0, color: "#ff5a2b" }}>→</span>
+                  {bullet}
+                </li>
+              ))}
+            </ul>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "18px" }}>
+              {exp.tags.map((tag) => (
+                <span
+                  key={tag}
+                  style={{
+                    fontSize: "11px",
+                    padding: "5px 11px",
+                    border: "1px solid #15233f22",
+                    color: "#5a6480",
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </section>
   );
 }

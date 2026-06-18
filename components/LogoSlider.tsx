@@ -2,15 +2,9 @@
 
 import React from "react";
 
-interface LogoItem {
-  name: string;
-  path: string;
-}
-
-// Row 1 (Backend, Database & Payments)
-const r1: LogoItem[] = [
-  { name: "NestJS", path: "/nestjs.svg" },
+const r1 = [
   { name: "Node.js", path: "/nodejs.svg" },
+  { name: "NestJS", path: "/nestjs.svg" },
   { name: "PostgreSQL", path: "/postgressql.svg" },
   { name: "Redis", path: "/redis.svg" },
   { name: "AWS", path: "/aws.svg" },
@@ -21,12 +15,11 @@ const r1: LogoItem[] = [
   { name: "Zoho Payments", path: "/zoho-payments.svg" },
 ];
 
-// Row 2 (Frontend, Languages & UI Tools)
-const r2: LogoItem[] = [
+const r2 = [
   { name: "React", path: "/react.svg" },
   { name: "Next.js", path: "/next.svg" },
   { name: "TypeScript", path: "/typescript.svg" },
-  { name: "Tailwind CSS", path: "/tailwind.svg" },
+  { name: "Tailwind", path: "/tailwind.svg" },
   { name: "Redux", path: "/redux.svg" },
   { name: "Zustand", path: "/zustand.svg" },
   { name: "Vite", path: "/vite.svg" },
@@ -36,71 +29,63 @@ const r2: LogoItem[] = [
 
 export default function LogoSlider() {
   return (
-    <section className="marquee-container w-full my-12">
-      {/* Header for slider */}
-      <div className="px-[5vw] mb-8">
-        <div className="font-mono text-[0.72rem] text-accent tracking-[0.12em] uppercase mb-2 flex items-center gap-2.5 after:content-[''] after:h-px after:w-9 after:bg-accent after:opacity-40">
-          Technologies
-        </div>
-        <h3 className="font-sans text-[clamp(1.8rem,3vw,2.5rem)] font-bold tracking-tight leading-tight">
+    <section style={{ borderBottom: "1px solid #15233f22", padding: "clamp(36px,4vw,52px) 0" }}>
+      {/* Label */}
+      <div style={{ padding: "0 clamp(24px,5vw,64px)", marginBottom: "26px" }}>
+        <span
+          style={{
+            display: "inline-block",
+            background: "#ff5a2b",
+            color: "#f1ede2",
+            padding: "6px 13px",
+            fontSize: "11px",
+            letterSpacing: "0.16em",
+            textTransform: "uppercase",
+          }}
+        >
           Tech stacks worked on
-        </h3>
+        </span>
       </div>
 
-      <div className="marquee-mask flex flex-col gap-6">
-        {/* Row 1: Right-to-Left (loop to left) */}
-        <div className="marquee-row">
-          {/* We repeat the track 4 times to ensure it covers screens of any width (e.g. 4 * 840px = 3360px) */}
-          <div className="marquee-track animate-marquee-left">
-            {r1.map((logo, idx) => (
-              <img key={`row1-track1-${idx}`} src={logo.path} alt={logo.name} className="logo-slider-item" title={logo.name} loading="lazy" />
-            ))}
-          </div>
-          <div className="marquee-track animate-marquee-left" aria-hidden="true">
-            {r1.map((logo, idx) => (
-              <img key={`row1-track2-${idx}`} src={logo.path} alt={logo.name} className="logo-slider-item" title={logo.name} loading="lazy" />
-            ))}
-          </div>
-          <div className="marquee-track animate-marquee-left" aria-hidden="true">
-            {r1.map((logo, idx) => (
-              <img key={`row1-track3-${idx}`} src={logo.path} alt={logo.name} className="logo-slider-item" title={logo.name} loading="lazy" />
-            ))}
-          </div>
-          <div className="marquee-track animate-marquee-left" aria-hidden="true">
-            {r1.map((logo, idx) => (
-              <img key={`row1-track4-${idx}`} src={logo.path} alt={logo.name} className="logo-slider-item" title={logo.name} loading="lazy" />
-            ))}
-          </div>
+      {/* Row 1 — forward */}
+      <div
+        style={{
+          overflow: "hidden",
+          whiteSpace: "nowrap",
+          borderTop: "1px solid #15233f18",
+          borderBottom: "1px solid #15233f18",
+          padding: "18px 0",
+        }}
+      >
+        <div className="pf-ticker-track">
+          {[...r1, ...r1].map((item, i) => (
+            <span
+              key={i}
+              style={{ display: "inline-flex", alignItems: "center", gap: "11px", padding: "0 26px" }}
+            >
+              <img src={item.path} alt={item.name} style={{ width: "32px", height: "32px", objectFit: "contain" }} />
+              <span style={{ fontSize: "clamp(18px,2vw,26px)", fontWeight: 600, color: "#15233f" }}>
+                {item.name}
+              </span>
+            </span>
+          ))}
         </div>
+      </div>
 
-        {/* Row 2: Left-to-Right (loop to right) */}
-        <div className="marquee-row">
-          {/* We repeat the track 5 times to ensure it covers screens of any width (e.g. 5 * 756px = 3780px) */}
-          <div className="marquee-track animate-marquee-right">
-            {r2.map((logo, idx) => (
-              <img key={`row2-track1-${idx}`} src={logo.path} alt={logo.name} className="logo-slider-item" title={logo.name} loading="lazy" />
-            ))}
-          </div>
-          <div className="marquee-track animate-marquee-right" aria-hidden="true">
-            {r2.map((logo, idx) => (
-              <img key={`row2-track2-${idx}`} src={logo.path} alt={logo.name} className="logo-slider-item" title={logo.name} loading="lazy" />
-            ))}
-          </div>
-          <div className="marquee-track animate-marquee-right" aria-hidden="true">
-            {r2.map((logo, idx) => (
-              <img key={`row2-track3-${idx}`} src={logo.path} alt={logo.name} className="logo-slider-item" title={logo.name} loading="lazy" />
-            ))}
-          </div>
-          <div className="marquee-track animate-marquee-right" aria-hidden="true">
-            {r2.map((logo, idx) => (
-              <img key={`row2-track4-${idx}`} src={logo.path} alt={logo.name} className="logo-slider-item" title={logo.name} loading="lazy" />
-            ))}
-          </div>
-          <div className="marquee-track animate-marquee-right" aria-hidden="true">
-            {r2.map((logo, idx) => (
-              <img key={`row2-track5-${idx}`} src={logo.path} alt={logo.name} className="logo-slider-item" title={logo.name} loading="lazy" />
-            ))}
-          </div>
+      {/* Row 2 — reverse */}
+      <div style={{ overflow: "hidden", whiteSpace: "nowrap", padding: "18px 0 0" }}>
+        <div className="pf-ticker-track-r">
+          {[...r2, ...r2].map((item, i) => (
+            <span
+              key={i}
+              style={{ display: "inline-flex", alignItems: "center", gap: "11px", padding: "0 26px" }}
+            >
+              <img src={item.path} alt={item.name} style={{ width: "30px", height: "30px", objectFit: "contain" }} />
+              <span style={{ fontSize: "clamp(18px,2vw,26px)", fontWeight: 600, color: "#5a6480" }}>
+                {item.name}
+              </span>
+            </span>
+          ))}
         </div>
       </div>
     </section>

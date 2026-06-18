@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/* ============================================================
+   PORTFOLIO — "POSTER" redesign
+   Risograph duotone · Spline Sans Mono · navy × signal-orange
+   ============================================================ */
+
+@theme inline {
+  --color-paper: #f1ede2;       /* page background (cream)      */
+  --color-ink: #15233f;         /* primary text (navy)          */
+  --color-signal: #ff5a2b;      /* accent (signal orange)       */
+  --color-surface: #faf8f2;     /* elevated card surface        */
+  --color-body: #3a445e;        /* body copy                    */
+  --color-muted: #5a6480;       /* secondary text               */
+  --color-muted-2: #7a8298;     /* tertiary text                */
+  --color-faint: #9aa0b0;       /* labels / captions            */
+  --color-line: #15233f22;      /* hairline border              */
+  --color-line-soft: #15233f18; /* fainter hairline             */
+
+  --font-mono: var(--font-spline), ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-spline), ui-monospace, monospace;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--color-signal); color: var(--color-paper); }
+
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: #e6e0d2; }
+::-webkit-scrollbar-thumb { background: #15233f55; }
+
+/* ---------- Marquee tickers ---------- */
+@keyframes ticker  { from { transform: translateX(0); }      to { transform: translateX(-50%); } }
+@keyframes tickerR { from { transform: translateX(-50%); }   to { transform: translateX(0); } }
+
+.marquee-track  { display: inline-flex; will-change: transform; animation: ticker 28s linear infinite; }
+.marquee-track-r { display: inline-flex; will-change: transform; animation: tickerR 32s linear infinite; }
+
+/* ---------- Scroll reveal (CSS view-timeline, progressive enhancement) ----------
+   Content is visible by default; the entrance only applies where supported,
+   so nothing can ever be hidden behind JS. */
+.reveal { opacity: 1; transform: none; }
+
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: revealUp linear both;
+      animation-timeline: view();
+      animation-range: entry 4% cover 20%;
+    }
+  }
+}
+
+/* ---------- Duotone offset headline ---------- */
+.duotone { position: relative; line-height: 0.84; }
+.duotone .layer {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+}
+.duotone .layer-shadow {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  color: var(--color-signal);
+  opacity: 0.85;
+  pointer-events: none;
+}
+.duotone .layer-top { position: relative; color: var(--color-ink); }
+
+/* ---------- Interactions ---------- */
+.cta-dark   { transition: background .25s ease; }
+.cta-dark:hover   { background: var(--color-signal); }
+.cta-orange { transition: background .25s ease; }
+.cta-orange:hover { background: var(--color-ink); }
+.ghost-link { transition: color .2s ease, border-color .2s ease; }
+.ghost-link:hover { color: var(--color-signal); border-color: var(--color-signal); }
+.navlink { transition: color .2s ease; }
+.navlink:hover { color: var(--color-signal); }
+
+.work-card { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
+.work-card:hover { transform: translateY(-4px); border-color: var(--color-signal); box-shadow: 6px 6px 0 var(--color-ink); }
