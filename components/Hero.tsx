@@ -43,7 +43,7 @@ export default function Hero() {
             }}
           >
             <p
-              className="m-0 leading-[1.8] text-body max-w-[580px]"
+              className="m-0 leading-[1.8] text-body max-w-145"
               style={{ fontSize: "clamp(14px,1.1vw,16px)" }}
             >
               I design solutions, build scalable systems, and ship production-grade software — from backend microservices and cloud infrastructure to polished frontend interfaces serving real users.

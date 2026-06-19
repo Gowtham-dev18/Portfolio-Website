@@ -21,14 +21,14 @@ export default function About() {
       >
         <div className="pf-reveal">
           <h2
-            className="m-0 mb-7 font-bold leading-[1.06] tracking-[-0.025em]"
+            className="m-0 mb-7 font-bold leading-[1.06] tracking-tight"
             style={{ fontSize: "clamp(30px,4vw,52px)" }}
           >
             I turn ideas into{" "}
             <span className="text-orange">reliable digital products.</span>
           </h2>
           <p
-            className="m-0 mb-4.5 leading-[1.85] text-body max-w-[620px]"
+            className="m-0 mb-4.5 leading-[1.85] text-body max-w-155"
             style={{ fontSize: "clamp(14px,1vw,16px)" }}
           >
             From backend architecture to polished frontend interfaces, I build production-grade
@@ -36,7 +36,7 @@ export default function About() {
             experience.
           </p>
           <p
-            className="m-0 leading-[1.85] text-body max-w-[620px]"
+            className="m-0 leading-[1.85] text-body max-w-155"
             style={{ fontSize: "clamp(14px,1vw,16px)" }}
           >
             Currently shipping at scale as a Software Engineer at Noukha Technologies, where I led

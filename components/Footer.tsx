@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <footer
-      className="flex justify-between items-center flex-wrap gap-[14px]"
+      className="flex justify-between items-center flex-wrap gap-3.5"
       style={{ padding: "28px clamp(24px,5vw,64px)" }}
     >
       <span className="text-[12px] tracking-[0.06em] text-subtle">

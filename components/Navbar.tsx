@@ -1,54 +1,92 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
+import { Layers, User, Briefcase, Send } from "lucide-react";
+
+const NAV_LINKS = [
+  { id: "work",       label: "WORK",       href: "#work",       icon: Layers    },
+  { id: "about",      label: "ABOUT",      href: "#about",      icon: User      },
+  { id: "experience", label: "EXPERIENCE", href: "#experience", icon: Briefcase },
+  { id: "contact",    label: "CONTACT",    href: "#contact",    icon: Send      },
+];
 
 export default function Navbar() {
+  const [activeSection, setActiveSection] = useState("");
+
+  /* Detect which section is in view by checking bounding rects on scroll */
+  useEffect(() => {
+    const ordered = ["contact", "experience", "work", "about", "top"];
+
+    const update = () => {
+      for (const id of ordered) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top;
+        if (top <= window.innerHeight * 0.45) {
+          setActiveSection(id);
+          return;
+        }
+      }
+      setActiveSection("top");
+    };
+
+    window.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => window.removeEventListener("scroll", update);
+  }, []);
+
+  const isActive = (id: string) => activeSection === id;
+
   return (
-    <>
-      {/* Top ticker */}
-      <div className="bg-navy overflow-hidden whitespace-nowrap border-b border-navy">
+    <nav className="fixed top-0 left-0 right-0 z-100 bg-cream border-b border-navy/13">
+      <div
+        className="flex justify-between items-center"
+        style={{ padding: "0 clamp(24px,5vw,64px)" }}
+      >
+        {/* ── GV Monogram + name ── */}
+        <a href="#top" className="no-underline flex items-center gap-3 py-4.5 group">
+          {/* Monogram badge */}
+          <div className="relative w-8.5 h-8.5 bg-navy shrink-0 flex items-center justify-center">
+            <span className="text-cream text-[12px] font-bold tracking-[-0.04em] leading-none select-none">
+              GV
+            </span>
+            <span className="absolute top-0 right-0 w-1.5 h-1.5 bg-orange" />
+          </div>
+          {/* Name — hides on small screens */}
+          <span className="hidden sm:block text-navy text-[13px] font-bold tracking-[0.04em] transition-colors duration-200 group-hover:text-orange">
+            GOWTHAMA VIKNESH K.
+          </span>
+        </a>
+
+        {/* ── Nav links ── */}
         <div
-          className="inline-flex gap-9.5 py-2.25 text-[11px] tracking-[0.16em] uppercase text-cream"
-          style={{ animation: "pf-ticker 28s linear infinite", willChange: "transform" }}
+          className="flex items-center"
+          style={{ gap: "clamp(20px,2.5vw,38px)" }}
         >
-          <span>Full-Stack Engineer</span>
-          <span className="text-orange">✦</span>
-          <span>Available for work — 2025</span>
-          <span className="text-orange">✦</span>
-          <span>Node · NestJS · React · AWS</span>
-          <span className="text-orange">✦</span>
-          <span>600+ users served</span>
-          <span className="text-orange">✦</span>
-          <span>Full-Stack Engineer</span>
-          <span className="text-orange">✦</span>
-          <span>Available for work — 2025</span>
-          <span className="text-orange">✦</span>
-          <span>Node · NestJS · React · AWS</span>
-          <span className="text-orange">✦</span>
-          <span>600+ users served</span>
-          <span className="text-orange">✦</span>
+          {NAV_LINKS.map(({ id, label, href, icon: Icon }) => (
+            <a
+              key={id}
+              href={href}
+              className={[
+                "relative no-underline flex items-center gap-1.5 py-4.5",
+                "text-[11px] tracking-[0.08em] uppercase transition-colors duration-200",
+                "pf-navlink",
+                isActive(id) ? "text-orange" : "text-muted",
+              ].join(" ")}
+            >
+              <Icon size={11} strokeWidth={2} />
+              {label}
+              {/* Active underline */}
+              <span
+                className={[
+                  "absolute bottom-0 left-0 right-0 h-0.5 bg-orange transition-opacity duration-200",
+                  isActive(id) ? "opacity-100" : "opacity-0",
+                ].join(" ")}
+              />
+            </a>
+          ))}
         </div>
       </div>
-
-      {/* Sticky nav */}
-      <nav
-        className="flex justify-between items-center sticky top-0 z-50 bg-cream border-b border-navy/13"
-        style={{ padding: "20px clamp(24px,5vw,64px)" }}
-      >
-        <a
-          href="#top"
-          className="no-underline text-navy text-[14px] font-bold tracking-[0.06em]"
-        >
-          GOWTHAMA VIKNESH K.
-        </a>
-        <div
-          className="flex text-[12px] tracking-[0.06em]"
-          style={{ gap: "clamp(16px,2.2vw,34px)" }}
-        >
-          <a href="#work" className="pf-navlink no-underline text-muted">WORK</a>
-          <a href="#about" className="pf-navlink no-underline text-muted">ABOUT</a>
-          <a href="#experience" className="pf-navlink no-underline text-muted">EXPERIENCE</a>
-          <a href="#contact" className="pf-navlink no-underline text-orange">CONTACT↗</a>
-        </div>
-      </nav>
-    </>
+    </nav>
   );
 }

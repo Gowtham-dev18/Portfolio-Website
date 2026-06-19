@@ -8,14 +8,14 @@ export default function Contact() {
         className="bg-navy text-cream border-b border-navy/13"
         style={{ padding: "clamp(56px,7vw,100px) clamp(24px,5vw,64px)" }}
       >
-        <div className="pf-reveal max-w-[920px]">
+        <div className="pf-reveal max-w-230">
           <div className="mb-7.5">
             <span className="inline-block bg-orange text-cream py-1.5 px-3.25 text-[11px] tracking-[0.16em] uppercase">
               Philosophy
             </span>
           </div>
           <p
-            className="m-0 font-semibold leading-[1.25] tracking-[-0.02em]"
+            className="m-0 font-semibold leading-tight tracking-[-0.02em]"
             style={{ fontSize: "clamp(24px,3.4vw,46px)" }}
           >
             Code is important, but{" "}
@@ -48,7 +48,7 @@ export default function Contact() {
           style={{ lineHeight: 0.9, marginBottom: "clamp(34px,4.5vw,56px)" }}
         >
           <h2
-            className="m-0 font-bold tracking-[-0.04em] absolute top-[5px] left-[5px] text-orange opacity-85 pointer-events-none"
+            className="m-0 font-bold tracking-[-0.04em] absolute top-1.25 left-1.25 text-orange opacity-85 pointer-events-none"
             style={{ fontSize: "clamp(44px,9vw,124px)" }}
           >
             LET&apos;S WORK<br />TOGETHER.

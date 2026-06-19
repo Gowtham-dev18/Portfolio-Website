@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import LogoSlider from "@/components/LogoSlider";
 import About from "@/components/About";
@@ -10,8 +9,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="w-full overflow-x-hidden">
-      <Navbar />
+    <>
       <Hero />
       <LogoSlider />
       <About />
@@ -19,6 +17,6 @@ export default function Home() {
       <Projects />
       <Contact />
       <Footer />
-    </div>
+    </>
   );
 }

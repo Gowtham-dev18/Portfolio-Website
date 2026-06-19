@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Spline_Sans_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import Navbar from "@/components/Navbar";
 
 const splineSansMono = Spline_Sans_Mono({
   variable: "--font-spline-mono",
@@ -21,6 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={splineSansMono.variable} suppressHydrationWarning>
       <body>
+        {/* Navbar is fixed and lives OUTSIDE smooth-wrapper so GSAP transforms don't affect it */}
+        <Navbar />
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
