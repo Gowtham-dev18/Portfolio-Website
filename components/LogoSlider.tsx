@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 const r1 = [
@@ -29,42 +27,24 @@ const r2 = [
 
 export default function LogoSlider() {
   return (
-    <section style={{ borderBottom: "1px solid #15233f22", padding: "clamp(36px,4vw,52px) 0" }}>
+    <section
+      className="border-b border-navy/13"
+      style={{ padding: "clamp(36px,4vw,52px) 0" }}
+    >
       {/* Label */}
-      <div style={{ padding: "0 clamp(24px,5vw,64px)", marginBottom: "26px" }}>
-        <span
-          style={{
-            display: "inline-block",
-            background: "#ff5a2b",
-            color: "#f1ede2",
-            padding: "6px 13px",
-            fontSize: "11px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-          }}
-        >
+      <div className="mb-6.5" style={{ padding: "0 clamp(24px,5vw,64px)" }}>
+        <span className="inline-block bg-orange text-cream py-1.5 px-3.25 text-[11px] tracking-[0.16em] uppercase">
           Tech stacks worked on
         </span>
       </div>
 
       {/* Row 1 — forward */}
-      <div
-        style={{
-          overflow: "hidden",
-          whiteSpace: "nowrap",
-          borderTop: "1px solid #15233f18",
-          borderBottom: "1px solid #15233f18",
-          padding: "18px 0",
-        }}
-      >
+      <div className="overflow-hidden whitespace-nowrap border-y border-navy/[0.094] py-4.5">
         <div className="pf-ticker-track">
           {[...r1, ...r1].map((item, i) => (
-            <span
-              key={i}
-              style={{ display: "inline-flex", alignItems: "center", gap: "11px", padding: "0 26px" }}
-            >
-              <img src={item.path} alt={item.name} style={{ width: "32px", height: "32px", objectFit: "contain" }} />
-              <span style={{ fontSize: "clamp(18px,2vw,26px)", fontWeight: 600, color: "#15233f" }}>
+            <span key={i} className="inline-flex items-center gap-2.75 px-6.5">
+              <img src={item.path} alt={item.name} className="w-8 h-8 object-contain" />
+              <span className="font-semibold text-navy" style={{ fontSize: "clamp(18px,2vw,26px)" }}>
                 {item.name}
               </span>
             </span>
@@ -73,15 +53,12 @@ export default function LogoSlider() {
       </div>
 
       {/* Row 2 — reverse */}
-      <div style={{ overflow: "hidden", whiteSpace: "nowrap", padding: "18px 0 0" }}>
+      <div className="overflow-hidden whitespace-nowrap pt-4.5">
         <div className="pf-ticker-track-r">
           {[...r2, ...r2].map((item, i) => (
-            <span
-              key={i}
-              style={{ display: "inline-flex", alignItems: "center", gap: "11px", padding: "0 26px" }}
-            >
-              <img src={item.path} alt={item.name} style={{ width: "30px", height: "30px", objectFit: "contain" }} />
-              <span style={{ fontSize: "clamp(18px,2vw,26px)", fontWeight: 600, color: "#5a6480" }}>
+            <span key={i} className="inline-flex items-center gap-2.75 px-6.5">
+              <img src={item.path} alt={item.name} className="w-7.5 h-7.5 object-contain" />
+              <span className="font-semibold text-muted" style={{ fontSize: "clamp(18px,2vw,26px)" }}>
                 {item.name}
               </span>
             </span>

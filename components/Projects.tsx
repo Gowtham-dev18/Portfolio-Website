@@ -38,127 +38,65 @@ export default function Projects() {
   return (
     <section
       id="work"
-      style={{ padding: "clamp(56px,7vw,96px) clamp(24px,5vw,64px)", borderBottom: "1px solid #15233f22" }}
+      className="border-b border-navy/13"
+      style={{ padding: "clamp(56px,7vw,96px) clamp(24px,5vw,64px)" }}
     >
       {/* Section label */}
-      <div className="pf-reveal" style={{ marginBottom: "24px" }}>
-        <span
-          style={{
-            display: "inline-block",
-            background: "#ff5a2b",
-            color: "#f1ede2",
-            padding: "6px 13px",
-            fontSize: "11px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-          }}
-        >
+      <div className="pf-reveal mb-6">
+        <span className="inline-block bg-orange text-cream py-1.5 px-3.25 text-[11px] tracking-[0.16em] uppercase">
           Selected work
         </span>
       </div>
 
       <h2
-        className="pf-reveal"
-        style={{
-          margin: "0 0 clamp(36px,4vw,56px)",
-          fontSize: "clamp(30px,4vw,52px)",
-          fontWeight: 700,
-          lineHeight: 1.06,
-          letterSpacing: "-0.025em",
-        }}
+        className="pf-reveal font-bold leading-[1.06] tracking-tight"
+        style={{ margin: "0 0 clamp(36px,4vw,56px)", fontSize: "clamp(30px,4vw,52px)" }}
       >
         Things I&apos;ve built.
       </h2>
 
       <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "clamp(20px,2.5vw,32px)",
-        }}
+        className="grid grid-cols-2"
+        style={{ gap: "clamp(20px,2.5vw,32px)" }}
       >
         {projects.map((proj) => (
           <div
             key={proj.id}
-            className="pf-card pf-reveal"
-            style={{
-              border: "1px solid #15233f22",
-              background: "#faf8f2",
-              display: "grid",
-              gridTemplateColumns: "clamp(120px,18%,180px) 1fr",
-            }}
+            className="pf-card pf-reveal border border-navy/13 bg-cream-light grid"
+            style={{ gridTemplateColumns: "clamp(120px,18%,180px) 1fr" }}
           >
             {/* Image placeholder */}
-            <div style={{ background: "#15233f", overflow: "hidden", minHeight: "240px" }} />
+            <div className="bg-navy overflow-hidden min-h-60" />
 
             {/* Content */}
             <div
-              style={{
-                padding: "clamp(28px,3vw,40px)",
-                display: "flex",
-                flexDirection: "column",
-              }}
+              className="flex flex-col"
+              style={{ padding: "clamp(28px,3vw,40px)" }}
             >
-              <div
-                style={{
-                  fontSize: "11px",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#7a8298",
-                  marginBottom: "28px",
-                }}
-              >
+              <div className="text-[11px] tracking-widest uppercase text-subtle mb-7">
                 {proj.number} / {proj.type}
               </div>
               <div
-                style={{
-                  fontSize: "clamp(20px,2vw,26px)",
-                  fontWeight: 700,
-                  letterSpacing: "-0.02em",
-                  marginBottom: "14px",
-                }}
+                className="font-bold tracking-[-0.02em] mb-3.5"
+                style={{ fontSize: "clamp(20px,2vw,26px)" }}
               >
                 {proj.name}
               </div>
-              <p
-                style={{
-                  margin: "0 0 22px",
-                  fontSize: "13px",
-                  lineHeight: 1.8,
-                  color: "#3a445e",
-                }}
-              >
+              <p className="m-0 mb-5.5 text-[13px] leading-[1.8] text-body">
                 {proj.description}
               </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginBottom: "26px" }}>
+              <div className="flex flex-wrap gap-2 mb-6.5">
                 {proj.tags.map((tag) => (
                   <span
                     key={tag}
-                    style={{
-                      fontSize: "11px",
-                      padding: "5px 11px",
-                      border: "1px solid #ff5a2b33",
-                      color: "#ff5a2b",
-                      background: "#ff5a2b0d",
-                    }}
+                    className="text-[11px] py-1.25 px-2.75 border border-orange/20 text-orange bg-orange/5"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
               {proj.isPrivate ? (
-                <span
-                  style={{
-                    marginTop: "auto",
-                    alignSelf: "flex-start",
-                    fontSize: "12px",
-                    letterSpacing: "0.06em",
-                    color: "#9aa0b0",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "7px",
-                  }}
-                >
+                <span className="mt-auto self-start text-[12px] tracking-[0.06em] text-dim inline-flex items-center gap-1.75">
                   🔒 Private — production app
                 </span>
               ) : (
@@ -166,17 +104,7 @@ export default function Projects() {
                   href={proj.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="pf-ghost"
-                  style={{
-                    marginTop: "auto",
-                    textDecoration: "none",
-                    alignSelf: "flex-start",
-                    fontSize: "12px",
-                    letterSpacing: "0.06em",
-                    color: "#15233f",
-                    borderBottom: "1px solid #15233f",
-                    paddingBottom: "3px",
-                  }}
+                  className="pf-ghost mt-auto self-start no-underline text-[12px] tracking-[0.06em] text-navy border-b border-navy pb-0.75"
                 >
                   View on GitHub ↗
                 </a>

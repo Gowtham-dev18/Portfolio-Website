@@ -1,69 +1,52 @@
-"use client";
-
 import React from "react";
 
 export default function Navbar() {
   return (
     <>
       {/* Top ticker */}
-      <div style={{ background: "#15233f", overflow: "hidden", whiteSpace: "nowrap", borderBottom: "1px solid #15233f" }}>
+      <div className="bg-navy overflow-hidden whitespace-nowrap border-b border-navy">
         <div
-          style={{
-            display: "inline-flex",
-            gap: "38px",
-            padding: "9px 0",
-            animation: "pf-ticker 28s linear infinite",
-            willChange: "transform",
-            fontSize: "11px",
-            letterSpacing: "0.16em",
-            textTransform: "uppercase",
-            color: "#f1ede2",
-          }}
+          className="inline-flex gap-9.5 py-2.25 text-[11px] tracking-[0.16em] uppercase text-cream"
+          style={{ animation: "pf-ticker 28s linear infinite", willChange: "transform" }}
         >
           <span>Full-Stack Engineer</span>
-          <span style={{ color: "#ff5a2b" }}>✦</span>
+          <span className="text-orange">✦</span>
           <span>Available for work — 2025</span>
-          <span style={{ color: "#ff5a2b" }}>✦</span>
+          <span className="text-orange">✦</span>
           <span>Node · NestJS · React · AWS</span>
-          <span style={{ color: "#ff5a2b" }}>✦</span>
+          <span className="text-orange">✦</span>
           <span>600+ users served</span>
-          <span style={{ color: "#ff5a2b" }}>✦</span>
+          <span className="text-orange">✦</span>
           <span>Full-Stack Engineer</span>
-          <span style={{ color: "#ff5a2b" }}>✦</span>
+          <span className="text-orange">✦</span>
           <span>Available for work — 2025</span>
-          <span style={{ color: "#ff5a2b" }}>✦</span>
+          <span className="text-orange">✦</span>
           <span>Node · NestJS · React · AWS</span>
-          <span style={{ color: "#ff5a2b" }}>✦</span>
+          <span className="text-orange">✦</span>
           <span>600+ users served</span>
-          <span style={{ color: "#ff5a2b" }}>✦</span>
+          <span className="text-orange">✦</span>
         </div>
       </div>
 
       {/* Sticky nav */}
       <nav
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "20px clamp(24px,5vw,64px)",
-          borderBottom: "1px solid #15233f22",
-          position: "sticky",
-          top: 0,
-          zIndex: 50,
-          background: "#f1ede2",
-        }}
+        className="flex justify-between items-center sticky top-0 z-50 bg-cream border-b border-navy/13"
+        style={{ padding: "20px clamp(24px,5vw,64px)" }}
       >
         <a
           href="#top"
-          style={{ textDecoration: "none", color: "#15233f", fontSize: "14px", fontWeight: 700, letterSpacing: "0.06em" }}
+          className="no-underline text-navy text-[14px] font-bold tracking-[0.06em]"
         >
           GOWTHAMA VIKNESH K.
         </a>
-        <div style={{ display: "flex", gap: "clamp(16px,2.2vw,34px)", fontSize: "12px", letterSpacing: "0.06em" }}>
-          <a href="#work" className="pf-navlink" style={{ textDecoration: "none", color: "#5a6480" }}>WORK</a>
-          <a href="#about" className="pf-navlink" style={{ textDecoration: "none", color: "#5a6480" }}>ABOUT</a>
-          <a href="#experience" className="pf-navlink" style={{ textDecoration: "none", color: "#5a6480" }}>EXPERIENCE</a>
-          <a href="#contact" className="pf-navlink" style={{ textDecoration: "none", color: "#ff5a2b" }}>CONTACT↗</a>
+        <div
+          className="flex text-[12px] tracking-[0.06em]"
+          style={{ gap: "clamp(16px,2.2vw,34px)" }}
+        >
+          <a href="#work" className="pf-navlink no-underline text-muted">WORK</a>
+          <a href="#about" className="pf-navlink no-underline text-muted">ABOUT</a>
+          <a href="#experience" className="pf-navlink no-underline text-muted">EXPERIENCE</a>
+          <a href="#contact" className="pf-navlink no-underline text-orange">CONTACT↗</a>
         </div>
       </nav>
     </>

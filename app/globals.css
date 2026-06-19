@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@theme {
+  --color-navy:        #15233f;
+  --color-orange:      #ff5a2b;
+  --color-cream:       #f1ede2;
+  --color-cream-light: #faf8f2;
+  --color-muted:       #5a6480;
+  --color-subtle:      #7a8298;
+  --color-dim:         #9aa0b0;
+  --color-body:        #3a445e;
+}
+
 * { box-sizing: border-box; }
 
 html {
@@ -9,16 +20,16 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: #f1ede2;
+  background: theme(--color-cream);
   font-family: var(--font-spline-mono), 'Spline Sans Mono', monospace;
-  color: #15233f;
+  color: theme(--color-navy);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 ::selection {
-  background: #ff5a2b;
-  color: #f1ede2;
+  background: theme(--color-orange);
+  color: theme(--color-cream);
 }
 
 ::-webkit-scrollbar { width: 9px; }
@@ -75,22 +86,22 @@ body {
 
 /* ── Nav link hover ── */
 .pf-navlink { transition: color .2s ease; }
-.pf-navlink:hover { color: #ff5a2b !important; }
+.pf-navlink:hover { color: theme(--color-orange); }
 
 /* ── CTA button hovers ── */
 .pf-cta-dark   { transition: background .25s ease; }
-.pf-cta-dark:hover   { background: #ff5a2b !important; }
+.pf-cta-dark:hover   { background: theme(--color-orange); }
 .pf-cta-orange { transition: background .25s ease; }
-.pf-cta-orange:hover { background: #15233f !important; }
+.pf-cta-orange:hover { background: theme(--color-navy); }
 
 /* ── Ghost link hover ── */
 .pf-ghost { transition: color .2s ease, border-color .2s ease; }
-.pf-ghost:hover { color: #ff5a2b !important; border-color: #ff5a2b !important; }
+.pf-ghost:hover { color: theme(--color-orange); border-color: theme(--color-orange); }
 
 /* ── Project card hover ── */
 .pf-card { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
-.pf-card:hover { transform: translateY(-4px); border-color: #ff5a2b !important; box-shadow: 6px 6px 0 #15233f; }
+.pf-card:hover { transform: translateY(-4px); border-color: theme(--color-orange); box-shadow: 6px 6px 0 theme(--color-navy); }
 
 /* ── Contact tile hover ── */
 .pf-tile { transition: background .2s ease, color .2s ease, border-color .2s ease; }
-.pf-tile:hover { background: #15233f !important; color: #f1ede2 !important; border-color: #15233f !important; }
+.pf-tile:hover { background: theme(--color-navy); color: theme(--color-cream); border-color: theme(--color-navy); }

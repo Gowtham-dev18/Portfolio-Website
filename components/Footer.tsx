@@ -3,26 +3,16 @@ import React from "react";
 export default function Footer() {
   return (
     <footer
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        flexWrap: "wrap",
-        gap: "14px",
-        padding: "28px clamp(24px,5vw,64px)",
-      }}
+      className="flex justify-between items-center flex-wrap gap-[14px]"
+      style={{ padding: "28px clamp(24px,5vw,64px)" }}
     >
-      <span style={{ fontSize: "12px", letterSpacing: "0.06em", color: "#7a8298" }}>
+      <span className="text-[12px] tracking-[0.06em] text-subtle">
         © 2025 Gowthama Viknesh K.
       </span>
-      <span style={{ fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#9aa0b0" }}>
+      <span className="text-[11px] tracking-[0.12em] uppercase text-dim">
         Designed &amp; built with purpose · Coimbatore, IN
       </span>
-      <a
-        href="#top"
-        className="pf-navlink"
-        style={{ textDecoration: "none", fontSize: "12px", letterSpacing: "0.06em", color: "#15233f" }}
-      >
+      <a href="#top" className="pf-navlink no-underline text-[12px] tracking-[0.06em] text-navy">
         Back to top ↑
       </a>
     </footer>

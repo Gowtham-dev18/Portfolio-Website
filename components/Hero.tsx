@@ -2,57 +2,32 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <section id="top" style={{ padding: 0 }}>
+    <section id="top" className="p-0">
       {/* Main hero content */}
       <div
+        className="grid items-center"
         style={{
           padding: "clamp(44px,6vw,72px) clamp(24px,5vw,64px) clamp(40px,5vw,60px)",
-          display: "grid",
           gridTemplateColumns: "1fr clamp(170px,20vw,272px)",
           gap: "clamp(20px,4vw,56px)",
-          alignItems: "center",
         }}
       >
         <div>
-          <div
-            style={{
-              fontSize: "12px",
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              color: "#ff5a2b",
-              marginBottom: "26px",
-            }}
-          >
+          <div className="text-[12px] tracking-[0.22em] uppercase text-orange mb-6.5">
             Full Stack Software Engineer
           </div>
 
           {/* Big heading with offset shadow */}
-          <div style={{ position: "relative", lineHeight: 0.84, marginBottom: "8px" }}>
+          <div className="relative mb-2" style={{ lineHeight: 0.84 }}>
             <h1
-              style={{
-                margin: 0,
-                fontSize: "clamp(52px,9.6vw,132px)",
-                fontWeight: 700,
-                letterSpacing: "-0.035em",
-                position: "absolute",
-                top: "6px",
-                left: "6px",
-                color: "#ff5a2b",
-                opacity: 0.85,
-                pointerEvents: "none",
-              }}
+              className="m-0 font-bold tracking-[-0.035em] absolute top-1.5 left-1.5 text-orange opacity-85 pointer-events-none"
+              style={{ fontSize: "clamp(52px,9.6vw,132px)" }}
             >
               SHIP WITH<br />PURPOSE.
             </h1>
             <h1
-              style={{
-                margin: 0,
-                fontSize: "clamp(52px,9.6vw,132px)",
-                fontWeight: 700,
-                letterSpacing: "-0.035em",
-                position: "relative",
-                color: "#15233f",
-              }}
+              className="m-0 font-bold tracking-[-0.035em] relative text-navy"
+              style={{ fontSize: "clamp(52px,9.6vw,132px)" }}
             >
               SHIP WITH<br />PURPOSE.
             </h1>
@@ -60,38 +35,23 @@ export default function Hero() {
 
           {/* Description + CTAs */}
           <div
+            className="grid items-end"
             style={{
-              display: "grid",
               gridTemplateColumns: "1.4fr 1fr",
               gap: "clamp(28px,5vw,56px)",
               marginTop: "clamp(40px,5vw,68px)",
-              alignItems: "end",
             }}
           >
             <p
-              style={{
-                margin: 0,
-                fontSize: "clamp(14px,1.1vw,16px)",
-                lineHeight: 1.8,
-                color: "#3a445e",
-                maxWidth: "580px",
-              }}
+              className="m-0 leading-[1.8] text-body max-w-[580px]"
+              style={{ fontSize: "clamp(14px,1.1vw,16px)" }}
             >
               I design solutions, build scalable systems, and ship production-grade software — from backend microservices and cloud infrastructure to polished frontend interfaces serving real users.
             </p>
-            <div style={{ display: "flex", gap: "14px", flexWrap: "wrap" }}>
+            <div className="flex gap-3.5 flex-wrap">
               <a
                 href="mailto:gowthamaviknesh18@gmail.com"
-                className="pf-cta-dark"
-                style={{
-                  textDecoration: "none",
-                  background: "#15233f",
-                  color: "#f1ede2",
-                  padding: "16px 26px",
-                  fontSize: "12px",
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                }}
+                className="pf-cta-dark no-underline bg-navy text-cream py-4 px-6.5 text-[12px] tracking-[0.08em] uppercase"
               >
                 Get in touch →
               </a>
@@ -99,16 +59,7 @@ export default function Hero() {
                 href="https://github.com/Gowtham-dev18"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="pf-cta-orange"
-                style={{
-                  textDecoration: "none",
-                  background: "#ff5a2b",
-                  color: "#f1ede2",
-                  padding: "16px 26px",
-                  fontSize: "12px",
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                }}
+                className="pf-cta-orange no-underline bg-orange text-cream py-4 px-6.5 text-[12px] tracking-[0.08em] uppercase"
               >
                 GitHub ↗
               </a>
@@ -118,16 +69,13 @@ export default function Hero() {
 
         {/* Spinning seal */}
         <div
-          style={{
-            justifySelf: "center",
-            position: "relative",
-            width: "clamp(150px,18vw,250px)",
-            aspectRatio: "1",
-          }}
+          className="justify-self-center relative aspect-square"
+          style={{ width: "clamp(150px,18vw,250px)" }}
         >
           <svg
             viewBox="0 0 200 200"
-            style={{ width: "100%", height: "100%", animation: "pf-spin 20s linear infinite" }}
+            className="w-full h-full"
+            style={{ animation: "pf-spin 20s linear infinite" }}
           >
             <defs>
               <path
@@ -135,30 +83,15 @@ export default function Hero() {
                 d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"
               />
             </defs>
-            <text
-              style={{
-                fontSize: "13.5px",
-                letterSpacing: "0.22em",
-                fill: "#15233f",
-                fontWeight: 600,
-              }}
-            >
+            <text style={{ fontSize: "13.5px", letterSpacing: "0.22em", fill: "#15233f", fontWeight: 600 }}>
               <textPath href="#hero-seal" startOffset="0">
                 AVAILABLE FOR WORK ✦ 2025 ✦ COIMBATORE, IN ✦{" "}
               </textPath>
             </text>
           </svg>
           <span
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: "clamp(38px,4.6vw,60px)",
-              color: "#ff5a2b",
-              lineHeight: 1,
-            }}
+            className="absolute inset-0 flex items-center justify-center text-orange leading-none"
+            style={{ fontSize: "clamp(38px,4.6vw,60px)" }}
           >
             ↗
           </span>
@@ -166,28 +99,22 @@ export default function Hero() {
       </div>
 
       {/* Stats row */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4,1fr)",
-          borderTop: "1px solid #15233f22",
-        }}
-      >
-        <div style={{ padding: "26px clamp(24px,5vw,64px)", borderRight: "1px solid #15233f22" }}>
-          <span style={{ fontSize: "clamp(28px,3vw,38px)", fontWeight: 700 }}>2+</span>
-          <div style={{ fontSize: "10px", letterSpacing: "0.12em", color: "#7a8298", textTransform: "uppercase", marginTop: "6px" }}>Years exp</div>
+      <div className="grid grid-cols-4 border-t border-navy/13">
+        <div className="border-r border-navy/13" style={{ padding: "26px clamp(24px,5vw,64px)" }}>
+          <span className="font-bold" style={{ fontSize: "clamp(28px,3vw,38px)" }}>2+</span>
+          <div className="text-[10px] tracking-[0.12em] text-subtle uppercase mt-1.5">Years exp</div>
         </div>
-        <div style={{ padding: "26px 28px", borderRight: "1px solid #15233f22" }}>
-          <span style={{ fontSize: "clamp(28px,3vw,38px)", fontWeight: 700 }}>3</span>
-          <div style={{ fontSize: "10px", letterSpacing: "0.12em", color: "#7a8298", textTransform: "uppercase", marginTop: "6px" }}>Platforms</div>
+        <div className="p-6.5 border-r border-navy/13">
+          <span className="font-bold" style={{ fontSize: "clamp(28px,3vw,38px)" }}>3</span>
+          <div className="text-[10px] tracking-[0.12em] text-subtle uppercase mt-1.5">Platforms</div>
         </div>
-        <div style={{ padding: "26px 28px", borderRight: "1px solid #15233f22" }}>
-          <span style={{ fontSize: "clamp(28px,3vw,38px)", fontWeight: 700, color: "#ff5a2b" }}>600+</span>
-          <div style={{ fontSize: "10px", letterSpacing: "0.12em", color: "#7a8298", textTransform: "uppercase", marginTop: "6px" }}>Users served</div>
+        <div className="p-6.5 border-r border-navy/13">
+          <span className="font-bold text-orange" style={{ fontSize: "clamp(28px,3vw,38px)" }}>600+</span>
+          <div className="text-[10px] tracking-[0.12em] text-subtle uppercase mt-1.5">Users served</div>
         </div>
-        <div style={{ padding: "26px 28px" }}>
-          <span style={{ fontSize: "clamp(28px,3vw,38px)", fontWeight: 700 }}>10+</span>
-          <div style={{ fontSize: "10px", letterSpacing: "0.12em", color: "#7a8298", textTransform: "uppercase", marginTop: "6px" }}>Integrations</div>
+        <div className="p-6.5">
+          <span className="font-bold" style={{ fontSize: "clamp(28px,3vw,38px)" }}>10+</span>
+          <div className="text-[10px] tracking-[0.12em] text-subtle uppercase mt-1.5">Integrations</div>
         </div>
       </div>
     </section>
