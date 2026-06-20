@@ -12,6 +12,18 @@
   --font-brand:        var(--font-edosz), sans-serif;
 }
 
+/* ── Space dark mode — token swap (navy/cream flip as a pair) ── */
+[data-theme="dark"] {
+  --color-navy:        #f2f4fa; /* primary text + inverted surfaces → light */
+  --color-cream:       #000000; /* page background → pitch black */
+  --color-cream-light: #0c0c0f; /* elevated near-black cards */
+  --color-muted:       #aab3c7;
+  --color-subtle:      #98a3bb;
+  --color-dim:         #79849f;
+  --color-body:        #c5cddc;
+  /* --color-orange unchanged (reads well on dark) */
+}
+
 * { box-sizing: border-box; }
 
 html {
@@ -22,10 +34,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  background: theme(--color-cream);
+  background: var(--color-cream);
   font-family: var(--font-spline-mono), 'Spline Sans Mono', monospace;
-  color: theme(--color-navy);
+  color: var(--color-navy);
   -webkit-font-smoothing: antialiased;
+  transition: background .4s ease, color .4s ease;
 }
 
 /* ── GSAP ScrollSmoother ── */
@@ -38,6 +51,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  z-index: 1; /* sits above the fixed starfield (z-0) */
 }
 
 #smooth-content {
@@ -47,13 +61,16 @@ body {
 }
 
 ::selection {
-  background: theme(--color-orange);
-  color: theme(--color-cream);
+  background: var(--color-orange);
+  color: var(--color-cream);
 }
 
 ::-webkit-scrollbar { width: 9px; }
 ::-webkit-scrollbar-track { background: #e6e0d2; }
 ::-webkit-scrollbar-thumb { background: #15233f55; }
+
+[data-theme="dark"] ::-webkit-scrollbar-track { background: #0a0f1e; }
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: #ffffff33; }
 
 /* ── Ticker animations ── */
 @keyframes pf-ticker {
@@ -133,22 +150,90 @@ body {
 
 /* ── Nav link hover ── */
 .pf-navlink { transition: color .2s ease; }
-.pf-navlink:hover { color: theme(--color-orange); }
+.pf-navlink:hover { color: var(--color-orange); }
 
 /* ── CTA button hovers ── */
 .pf-cta-dark   { transition: background .25s ease; }
-.pf-cta-dark:hover   { background: theme(--color-orange); }
+.pf-cta-dark:hover   { background: var(--color-orange); }
 .pf-cta-orange { transition: background .25s ease; }
-.pf-cta-orange:hover { background: theme(--color-navy); }
+.pf-cta-orange:hover { background: var(--color-navy); }
 
 /* ── Ghost link hover ── */
 .pf-ghost { transition: color .2s ease, border-color .2s ease; }
-.pf-ghost:hover { color: theme(--color-orange); border-color: theme(--color-orange); }
+.pf-ghost:hover { color: var(--color-orange); border-color: var(--color-orange); }
 
 /* ── Project card hover ── */
 .pf-card { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
-.pf-card:hover { transform: translateY(-4px); border-color: theme(--color-orange); box-shadow: 6px 6px 0 theme(--color-navy); }
+.pf-card:hover { transform: translateY(-4px); border-color: var(--color-orange); box-shadow: 6px 6px 0 var(--color-navy); }
 
 /* ── Contact tile hover ── */
 .pf-tile { transition: background .2s ease, color .2s ease, border-color .2s ease; }
-.pf-tile:hover { background: theme(--color-navy); color: theme(--color-cream); border-color: theme(--color-navy); }
+.pf-tile:hover { background: var(--color-navy); color: var(--color-cream); border-color: var(--color-navy); }
+
+/* ── Transparent glassy navbar in dark mode ── */
+[data-theme="dark"] .pf-nav {
+  background: transparent;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-color: #ffffff1f;
+}
+
+/* ── Icons that need a flat fill: black in light, white in dark ── */
+.pf-icon-dark { filter: brightness(0); }
+[data-theme="dark"] .pf-icon-dark { filter: brightness(0) invert(1); }
+
+/* ── Starfield (visible only in dark/space mode) ── */
+.pf-stars {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  display: none;
+  background:
+    radial-gradient(1200px 600px at 70% -10%, #0c0c10 0%, transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, #080809 0%, transparent 55%),
+    #000000;
+}
+[data-theme="dark"] .pf-stars { display: block; }
+
+.pf-star-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: transparent;
+  animation: pf-twinkle var(--dur, 4s) ease-in-out infinite;
+  will-change: opacity;
+}
+
+@keyframes pf-twinkle {
+  0%, 100% { opacity: .45; }
+  50%      { opacity: 1; }
+}
+
+.pf-shooting {
+  position: absolute;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, .9), transparent);
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, .55));
+  opacity: 0;
+  border-radius: 2px;
+  animation: pf-shoot var(--dur, 6s) ease-in infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform, opacity;
+}
+
+@keyframes pf-shoot {
+  0%   { transform: translate3d(0, 0, 0) rotate(38deg); opacity: 0; }
+  6%   { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate3d(520px, 410px, 0) rotate(38deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-star-layer,
+  .pf-shooting { animation: none; }
+  .pf-shooting { opacity: 0; }
+}

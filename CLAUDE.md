@@ -195,13 +195,18 @@ When I give a task:
 
 ---
 
-## 11. Anti-Hallucination Rules
+# Anti-Hallucination Rules
 
-- Do NOT assume package versions — check `package.json` if needed (ask first)
-- Do NOT invent CSS variable names — check `globals.css` first (ask first)
-- Do NOT assume file content — ask before reading
-- If unsure about anything, say: `"I'm not sure, should I check [file]?"`
-- Do NOT make up component props that don't exist
+- Do NOT assume package versions — ask: "Should I read package.json?"
+- Do NOT invent CSS variable names — ask: "Should I read globals.css?" before using any variable
+- Do NOT assume file content — ask before reading any file
+- Do NOT make up component props, hook signatures, or function arguments that aren't confirmed
+- If unsure about anything: say "I'm not sure — should I check [file]?"
+- When a document or file is given to read — read it fully and plan from it. Do not hallucinate content. 
+- Take no shortcuts.
+- When a file is mentioned — check ONLY that file and its directly connected files (e.g. its imports). 
+- Do NOT scan the entire project structure. Going too broad leads to wrong assumptions.
+- Scope every task to the minimum files needed. More files read ≠ better output — it leads to broken references and invented code
 
 ---
 

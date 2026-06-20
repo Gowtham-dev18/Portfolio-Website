@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Layers, User, Briefcase, Send, GraduationCap } from "lucide-react";
+import { Layers, User, Briefcase, Send, GraduationCap, Sun, Moon } from "lucide-react";
 import Lottie, { type LottieRefCurrentProps } from "lottie-react";
 import DragonAnimation from "@/public/Dragon.json";
 import FireAnimation from "@/public/fire.json";
@@ -24,6 +24,21 @@ const renderLetters = (text: string, prefix: string) =>
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
+  const [dark, setDark] = useState(false);
+
+  /* Sync toggle icon with the theme applied by the no-FOUC script */
+  useEffect(() => {
+    setDark(document.documentElement.dataset.theme === "dark");
+  }, []);
+
+  const toggleTheme = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.dataset.theme = next ? "dark" : "light";
+    try {
+      localStorage.setItem("theme", next ? "dark" : "light");
+    } catch {}
+  };
 
   const brandRef = useRef<HTMLSpanElement>(null);
   const fireRef = useRef<HTMLSpanElement>(null);
@@ -95,7 +110,7 @@ export default function Navbar() {
   const isActive = (id: string) => activeSection === id;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-100 bg-cream border-b border-navy/13">
+    <nav className="pf-nav fixed top-0 left-0 right-0 z-100 bg-cream border-b border-navy/13">
       <div
         className="flex justify-between items-center"
         style={{ padding: "0 clamp(24px,5vw,64px)" }}
@@ -161,6 +176,16 @@ export default function Navbar() {
               />
             </a>
           ))}
+
+          {/* Theme toggle */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="flex items-center justify-center w-9 h-9 rounded-full border border-navy/13 text-navy transition-colors duration-200 hover:text-orange hover:border-orange focus-visible:outline-2 focus-visible:outline-orange cursor-pointer"
+          >
+            {dark ? <Sun size={16} strokeWidth={2.4} /> : <Moon size={16} strokeWidth={2.4} />}
+          </button>
         </div>
       </div>
     </nav>

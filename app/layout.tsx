@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Preloader from "@/components/Preloader";
+import StarField from "@/components/StarField";
 
 const splineSansMono = Spline_Sans_Mono({
   variable: "--font-spline-mono",
@@ -29,7 +30,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${splineSansMono.variable} ${edosz.variable}`} suppressHydrationWarning>
+      <head>
+        {/* No-FOUC: apply stored dark theme before paint (default light) */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem('theme')==='dark')document.documentElement.dataset.theme='dark';}catch(e){}`,
+          }}
+        />
+      </head>
       <body>
+        {/* Fixed space starfield — visible only in dark mode, sits behind everything */}
+        <StarField />
         {/* Full-screen intro overlay — dragon flies into the navbar slot on finish */}
         <Preloader />
         {/* Navbar is fixed and lives OUTSIDE smooth-wrapper so GSAP transforms don't affect it */}

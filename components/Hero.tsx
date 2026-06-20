@@ -69,12 +69,8 @@ const renderFloat = (items: FloatIcon[], prefix: string) =>
           src={it.icon}
           alt=""
           aria-hidden
-          className="object-contain"
-          style={{
-            width: it.size,
-            height: it.size,
-            ...(it.dark ? { filter: "brightness(0)" } : {}),
-          }}
+          className={`object-contain${it.dark ? " pf-icon-dark" : ""}`}
+          style={{ width: it.size, height: it.size }}
         />
       </span>
     </span>
@@ -180,7 +176,7 @@ export default function Hero() {
               cy="150"
               r="98"
               fill="none"
-              stroke="#15233f"
+              stroke="var(--color-navy)"
               strokeOpacity="0.22"
               strokeWidth="1"
             />
@@ -188,7 +184,7 @@ export default function Hero() {
               style={{
                 fontSize: "13px",
                 letterSpacing: "0.16em",
-                fill: "#15233f",
+                fill: "var(--color-navy)",
                 fontWeight: 500,
               }}
             >
