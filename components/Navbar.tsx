@@ -48,7 +48,7 @@ export default function Navbar() {
         {/* ── Dragon logo + name ── */}
         <a href="#top" className="no-underline flex items-center gap-2 py-4.5 group">
           {/* Dragon Lottie avatar */}
-          <div className="w-10 h-10 shrink-0">
+          <div id="nav-dragon" className="w-10 h-10 shrink-0">
             <Lottie animationData={DragonAnimation} loop autoplay style={{ width: "100%", height: "100%" }} />
           </div>
           {/* Name — hides on small screens */}
