@@ -4,6 +4,82 @@ import { Mail, ArrowRight, ArrowUpRight } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import ninja from "@/app/images/ninja.png";
 
+interface FloatIcon {
+  icon: string;
+  x: number;
+  y: number;
+  size: number;
+  dur: number;
+  delay: number;
+  dark?: boolean;
+}
+
+// Scattered out in the open space AROUND the ring (radius ~56-78% — overflows the square)
+const OUTER_ICONS: FloatIcon[] = [
+  { icon: "/react.svg",        x: 50,  y: -6,  size: 30, dur: 4.6, delay: -0.2 },
+  { icon: "/nodejs.svg",       x: 76,  y: 0,   size: 26, dur: 5.3, delay: -1.1 },
+  { icon: "/git.svg",          x: 92,  y: 18,  size: 24, dur: 5.0, delay: -0.3 },
+  { icon: "/typescript.svg",   x: 102, y: 44,  size: 28, dur: 4.9, delay: -2.0 },
+  { icon: "/aws.svg",          x: 96,  y: 72,  size: 27, dur: 5.6, delay: -0.6, dark: true },
+  { icon: "/postgressql.svg",  x: 74,  y: 96,  size: 26, dur: 5.1, delay: -1.7 },
+  { icon: "/redis.svg",        x: 46,  y: 104, size: 24, dur: 4.4, delay: -2.4 },
+  { icon: "/nestjs.svg",       x: 20,  y: 96,  size: 27, dur: 5.8, delay: -0.9 },
+  { icon: "/tailwind.svg",     x: 2,   y: 70,  size: 26, dur: 4.7, delay: -1.4 },
+  { icon: "/redux.svg",        x: -6,  y: 42,  size: 24, dur: 5.4, delay: -3.0 },
+  { icon: "/stripe.svg",       x: 10,  y: 16,  size: 22, dur: 4.2, delay: -1.9, dark: true },
+];
+
+// Far scatter — fills the wider open space around the ring (radius ~80-100%)
+const FAR_ICONS: FloatIcon[] = [
+  { icon: "/javascript.svg",    x: 28,  y: -14, size: 22, dur: 6.0, delay: -0.7 },
+  { icon: "/firebase.svg",      x: 86,  y: -8,  size: 22, dur: 6.4, delay: -2.6 },
+  { icon: "/postman.svg",       x: 110, y: 34,  size: 24, dur: 5.5, delay: -1.2 },
+  { icon: "/tanstack.svg",      x: 104, y: 84,  size: 22, dur: 6.8, delay: -0.4 },
+  { icon: "/razorpay-icon.svg", x: 58,  y: 110, size: 22, dur: 5.9, delay: -3.1 },
+  { icon: "/npm.svg",           x: -14, y: 84,  size: 22, dur: 6.2, delay: -1.6 },
+  { icon: "/gitlab.svg",        x: -16, y: 22,  size: 22, dur: 6.6, delay: -2.2 },
+];
+
+// Inside the ring, in the gaps above/below the ninja (radius ~24-30%)
+const INNER_ICONS: FloatIcon[] = [
+  { icon: "/rabbitmq.svg",       x: 50, y: 24, size: 20, dur: 3.6, delay: -0.5 },
+  { icon: "/vite.svg",           x: 34, y: 30, size: 18, dur: 4.3, delay: -2.1 },
+  { icon: "/jest.svg",           x: 66, y: 30, size: 19, dur: 3.7, delay: -1.0 },
+  { icon: "/zoho-payments.svg",  x: 38, y: 72, size: 19, dur: 4.1, delay: -1.4 },
+  { icon: "/swagger.svg",        x: 64, y: 72, size: 19, dur: 3.9, delay: -0.8 },
+];
+
+const renderFloat = (items: FloatIcon[], prefix: string) =>
+  items.map((it, i) => (
+    <span
+      key={`${prefix}${i}`}
+      className="absolute pointer-events-none"
+      style={{ left: `${it.x}%`, top: `${it.y}%`, transform: "translate(-50%,-50%)" }}
+    >
+      <span
+        className="pf-float block"
+        style={
+          {
+            "--dur": `${it.dur}s`,
+            "--delay": `${it.delay}s`,
+          } as React.CSSProperties
+        }
+      >
+        <img
+          src={it.icon}
+          alt=""
+          aria-hidden
+          className="object-contain"
+          style={{
+            width: it.size,
+            height: it.size,
+            ...(it.dark ? { filter: "brightness(0)" } : {}),
+          }}
+        />
+      </span>
+    </span>
+  ));
+
 export default function Hero() {
   return (
     <section
@@ -28,20 +104,20 @@ export default function Hero() {
           </div>
 
           {/* Big heading with offset shadow */}
-          <div className="relative" style={{ lineHeight: 1 }}>
+          <div className="relative" style={{ lineHeight: 1.1 }}>
             <h1
-              className="m-0 font-bold tracking-[-0.02em] absolute top-1.5 left-1.5 text-orange opacity-85 pointer-events-none"
-              style={{ fontSize: "clamp(52px,9.6vw,132px)" }}
+              className="m-0 font-bold font-brand tracking-[0.02em] absolute top-1.5 left-1.5 text-orange opacity-85 pointer-events-none"
+              style={{ fontSize: "clamp(52px,9.6vw,132px)", wordSpacing: "0.12em" }}
             >
               SHIP WITH<br />
-              <span className="font-brand">PURPOSE</span>
+              PURPOSE
             </h1>
             <h1
-              className="m-0 font-bold tracking-[-0.02em] relative text-navy"
-              style={{ fontSize: "clamp(52px,9.6vw,132px)" }}
+              className="m-0 font-bold font-brand tracking-[0.02em] relative text-navy"
+              style={{ fontSize: "clamp(52px,9.6vw,132px)", wordSpacing: "0.12em" }}
             >
               SHIP WITH<br />
-              <span className="font-brand">PURPOSE</span>
+              PURPOSE
             </h1>
           </div>
 
@@ -123,9 +199,17 @@ export default function Hero() {
             </text>
           </svg>
 
-          {/* Ninja centered (static) */}
+          {/* Floating tech icons — far scatter + outer ring + inner gaps */}
+          {renderFloat(FAR_ICONS, "f")}
+          {renderFloat(OUTER_ICONS, "o")}
+          {renderFloat(INNER_ICONS, "i")}
+
+          {/* Ninja centered, gently bobbing */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="relative w-[58%] aspect-3/2">
+            <div
+              className="relative w-[58%] aspect-3/2 pf-bob"
+              style={{ "--dur": "5.5s" } as React.CSSProperties}
+            >
               <Image
                 src={ninja}
                 alt="Ninja mascot"

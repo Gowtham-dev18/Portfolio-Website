@@ -70,6 +70,35 @@ body {
   to { transform: rotate(360deg); }
 }
 
+/* ── Floating tech icons — wander on both axes, like drifting on water ── */
+@keyframes pf-float {
+  0%   { transform: translate(-7px,  5px) rotate(-2deg); }
+  25%  { transform: translate( 5px, -8px) rotate( 2deg); }
+  50%  { transform: translate( 8px,  4px) rotate( 3deg); }
+  75%  { transform: translate(-4px,  9px) rotate(-1deg); }
+  100% { transform: translate(-7px,  5px) rotate(-2deg); }
+}
+.pf-float {
+  animation: pf-float var(--dur, 4s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+  will-change: transform;
+}
+
+/* ── Ninja bob — symmetric around rest so it stays centered ── */
+@keyframes pf-bob {
+  0%, 100% { transform: translateY(-9px); }
+  50%      { transform: translateY( 9px); }
+}
+.pf-bob {
+  animation: pf-bob var(--dur, 5.5s) ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-float,
+  .pf-bob { animation: none; }
+}
+
 /* ── Scroll reveal — managed by GSAP ScrollTrigger in ThemeProvider ── */
 .pf-reveal {
   opacity: 0;
