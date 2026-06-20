@@ -9,6 +9,7 @@
   --color-subtle:      #7a8298;
   --color-dim:         #9aa0b0;
   --color-body:        #3a445e;
+  --font-brand:        var(--font-edosz), sans-serif;
 }
 
 * { box-sizing: border-box; }
@@ -42,7 +43,7 @@ body {
 #smooth-content {
   overflow-x: hidden;
   width: 100%;
-  padding-top: 65px; /* accounts for fixed navbar */
+  padding-top: 84px; /* accounts for fixed navbar */
 }
 
 ::selection {
@@ -79,6 +80,14 @@ body {
   opacity: 1;
   transform: none;
   transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+/* ── Fire-breath letter glow — --lit driven by GSAP on hover ── */
+.pf-letter {
+  display: inline-block;
+  text-shadow:
+    0 0 calc(var(--lit, 0) * 10px) var(--color-orange),
+    0 0 calc(var(--lit, 0) * 22px) var(--color-orange);
 }
 
 /* ── Marquee tracks ── */
