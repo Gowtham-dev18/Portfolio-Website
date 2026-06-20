@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Layers, User, Briefcase, Send } from "lucide-react";
+import Lottie from "lottie-react";
+import DragonAnimation from "@/public/Dragon.json";
 
 const NAV_LINKS = [
-  { id: "work",       label: "WORK",       href: "#work",       icon: Layers    },
-  { id: "about",      label: "ABOUT",      href: "#about",      icon: User      },
+  { id: "work", label: "WORK", href: "#work", icon: Layers },
+  { id: "about", label: "ABOUT", href: "#about", icon: User },
   { id: "experience", label: "EXPERIENCE", href: "#experience", icon: Briefcase },
-  { id: "contact",    label: "CONTACT",    href: "#contact",    icon: Send      },
+  { id: "contact", label: "CONTACT", href: "#contact", icon: Send },
 ];
 
 export default function Navbar() {
@@ -43,14 +45,11 @@ export default function Navbar() {
         className="flex justify-between items-center"
         style={{ padding: "0 clamp(24px,5vw,64px)" }}
       >
-        {/* ── GV Monogram + name ── */}
-        <a href="#top" className="no-underline flex items-center gap-3 py-4.5 group">
-          {/* Monogram badge */}
-          <div className="relative w-8.5 h-8.5 bg-navy shrink-0 flex items-center justify-center">
-            <span className="text-cream text-[12px] font-bold tracking-[-0.04em] leading-none select-none">
-              GV
-            </span>
-            <span className="absolute top-0 right-0 w-1.5 h-1.5 bg-orange" />
+        {/* ── Dragon logo + name ── */}
+        <a href="#top" className="no-underline flex items-center gap-2 py-4.5 group">
+          {/* Dragon Lottie avatar */}
+          <div className="w-10 h-10 shrink-0">
+            <Lottie animationData={DragonAnimation} loop autoplay style={{ width: "100%", height: "100%" }} />
           </div>
           {/* Name — hides on small screens */}
           <span className="hidden sm:block text-navy text-[13px] font-bold tracking-[0.04em] transition-colors duration-200 group-hover:text-orange">
