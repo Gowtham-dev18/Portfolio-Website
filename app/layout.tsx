@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Spline_Sans_Mono } from "next/font/google";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -7,10 +7,16 @@ import Navbar from "@/components/Navbar";
 import Preloader from "@/components/Preloader";
 import StarField from "@/components/StarField";
 
-const splineSansMono = Spline_Sans_Mono({
-  variable: "--font-spline-mono",
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
+  subsets: ["latin"],
+  weight: ["500", "700"],
 });
 
 const edosz = localFont({
@@ -29,7 +35,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${splineSansMono.variable} ${edosz.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${jetBrainsMono.variable} ${spaceGrotesk.variable} ${edosz.variable}`} suppressHydrationWarning>
       <head>
         {/* No-FOUC: apply stored dark theme before paint (default light) */}
         <script

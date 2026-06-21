@@ -16,37 +16,37 @@ interface FloatIcon {
 
 // Scattered out in the open space AROUND the ring (radius ~56-78% — overflows the square)
 const OUTER_ICONS: FloatIcon[] = [
-  { icon: "/react.svg",        x: 50,  y: -6,  size: 30, dur: 4.6, delay: -0.2 },
-  { icon: "/nodejs.svg",       x: 76,  y: 0,   size: 26, dur: 5.3, delay: -1.1 },
-  { icon: "/git.svg",          x: 92,  y: 18,  size: 24, dur: 5.0, delay: -0.3 },
-  { icon: "/typescript.svg",   x: 102, y: 44,  size: 28, dur: 4.9, delay: -2.0 },
-  { icon: "/aws.svg",          x: 96,  y: 72,  size: 27, dur: 5.6, delay: -0.6, dark: true },
-  { icon: "/postgressql.svg",  x: 74,  y: 96,  size: 26, dur: 5.1, delay: -1.7 },
-  { icon: "/redis.svg",        x: 46,  y: 104, size: 24, dur: 4.4, delay: -2.4 },
-  { icon: "/nestjs.svg",       x: 20,  y: 96,  size: 27, dur: 5.8, delay: -0.9 },
-  { icon: "/tailwind.svg",     x: 2,   y: 70,  size: 26, dur: 4.7, delay: -1.4 },
-  { icon: "/redux.svg",        x: -6,  y: 42,  size: 24, dur: 5.4, delay: -3.0 },
-  { icon: "/stripe.svg",       x: 10,  y: 16,  size: 22, dur: 4.2, delay: -1.9, dark: true },
+  { icon: "/react.svg", x: 50, y: -6, size: 30, dur: 4.6, delay: -0.2 },
+  { icon: "/nodejs.svg", x: 76, y: 0, size: 26, dur: 5.3, delay: -1.1 },
+  { icon: "/git.svg", x: 92, y: 18, size: 24, dur: 5.0, delay: -0.3 },
+  { icon: "/typescript.svg", x: 102, y: 44, size: 28, dur: 4.9, delay: -2.0 },
+  { icon: "/aws.svg", x: 96, y: 72, size: 27, dur: 5.6, delay: -0.6, dark: true },
+  { icon: "/postgressql.svg", x: 74, y: 96, size: 26, dur: 5.1, delay: -1.7 },
+  { icon: "/redis.svg", x: 46, y: 104, size: 24, dur: 4.4, delay: -2.4 },
+  { icon: "/nestjs.svg", x: 20, y: 96, size: 27, dur: 5.8, delay: -0.9 },
+  { icon: "/tailwind.svg", x: 2, y: 70, size: 26, dur: 4.7, delay: -1.4 },
+  { icon: "/redux.svg", x: -6, y: 42, size: 24, dur: 5.4, delay: -3.0 },
+  { icon: "/stripe.svg", x: 10, y: 16, size: 22, dur: 4.2, delay: -1.9, dark: true },
 ];
 
 // Far scatter — fills the wider open space around the ring (radius ~80-100%)
 const FAR_ICONS: FloatIcon[] = [
-  { icon: "/javascript.svg",    x: 28,  y: -14, size: 22, dur: 6.0, delay: -0.7 },
-  { icon: "/firebase.svg",      x: 86,  y: -8,  size: 22, dur: 6.4, delay: -2.6 },
-  { icon: "/postman.svg",       x: 110, y: 34,  size: 24, dur: 5.5, delay: -1.2 },
-  { icon: "/tanstack.svg",      x: 104, y: 84,  size: 22, dur: 6.8, delay: -0.4 },
-  { icon: "/razorpay-icon.svg", x: 58,  y: 110, size: 22, dur: 5.9, delay: -3.1 },
-  { icon: "/npm.svg",           x: -14, y: 84,  size: 22, dur: 6.2, delay: -1.6 },
-  { icon: "/gitlab.svg",        x: -16, y: 22,  size: 22, dur: 6.6, delay: -2.2 },
+  { icon: "/javascript.svg", x: 28, y: -14, size: 22, dur: 6.0, delay: -0.7 },
+  { icon: "/firebase.svg", x: 86, y: -8, size: 22, dur: 6.4, delay: -2.6 },
+  { icon: "/postman.svg", x: 110, y: 34, size: 24, dur: 5.5, delay: -1.2 },
+  { icon: "/tanstack.svg", x: 104, y: 84, size: 22, dur: 6.8, delay: -0.4 },
+  { icon: "/razorpay-icon.svg", x: 58, y: 110, size: 22, dur: 5.9, delay: -3.1 },
+  { icon: "/npm.svg", x: -14, y: 84, size: 22, dur: 6.2, delay: -1.6 },
+  { icon: "/gitlab.svg", x: -16, y: 22, size: 22, dur: 6.6, delay: -2.2 },
 ];
 
 // Inside the ring, in the gaps above/below the ninja (radius ~24-30%)
 const INNER_ICONS: FloatIcon[] = [
-  { icon: "/rabbitmq.svg",       x: 50, y: 24, size: 20, dur: 3.6, delay: -0.5 },
-  { icon: "/vite.svg",           x: 34, y: 30, size: 18, dur: 4.3, delay: -2.1 },
-  { icon: "/jest.svg",           x: 66, y: 30, size: 19, dur: 3.7, delay: -1.0 },
-  { icon: "/zoho-payments.svg",  x: 38, y: 72, size: 19, dur: 4.1, delay: -1.4 },
-  { icon: "/swagger.svg",        x: 64, y: 72, size: 19, dur: 3.9, delay: -0.8 },
+  { icon: "/rabbitmq.svg", x: 50, y: 24, size: 20, dur: 3.6, delay: -0.5 },
+  { icon: "/vite.svg", x: 34, y: 30, size: 18, dur: 4.3, delay: -2.1 },
+  { icon: "/jest.svg", x: 66, y: 30, size: 19, dur: 3.7, delay: -1.0 },
+  { icon: "/zoho-payments.svg", x: 38, y: 72, size: 19, dur: 4.1, delay: -1.4 },
+  { icon: "/swagger.svg", x: 64, y: 72, size: 19, dur: 3.9, delay: -0.8 },
 ];
 
 const renderFloat = (items: FloatIcon[], prefix: string) =>
@@ -81,13 +81,13 @@ export default function Hero() {
     <section
       id="top"
       className="flex flex-col"
-      style={{ minHeight: "calc(100vh - 84px)" }}
+      style={{ minHeight: "100vh" }}
     >
       {/* Main hero content */}
       <div
         className="grid items-stretch flex-1"
         style={{
-          padding: "clamp(48px,7vh,96px) clamp(24px,5vw,64px) clamp(40px,5vw,60px)",
+          padding: "clamp(120px,80vh,36px) clamp(24px,5vw,64px) clamp(40px,5vw,60px)",
           gridTemplateColumns: "minmax(0, 860px) clamp(300px,30vw,420px)",
           justifyContent: "start",
           gap: "clamp(36px,4vw,80px)",
@@ -95,7 +95,7 @@ export default function Hero() {
       >
         {/* ── Left column ── */}
         <div className="flex flex-col">
-          <div className="text-[12px] tracking-[0.22em] uppercase text-orange mb-7">
+          <div className="text-[16px] font-bold tracking-[0.18em] uppercase text-orange mb-7">
             Full Stack Software Engineer
           </div>
 
@@ -121,7 +121,7 @@ export default function Hero() {
           <p
             className="m-0 leading-[1.8] text-body max-w-205"
             style={{
-              fontSize: "clamp(14px,1.1vw,16px)",
+              fontSize: "clamp(15px,1.1vw,16px)",
               marginTop: "clamp(28px,4vw,48px)",
             }}
           >
@@ -132,12 +132,12 @@ export default function Hero() {
 
           {/* CTAs pinned to bottom-left */}
           <div
-            className="flex gap-3.5 flex-wrap mt-auto"
-            style={{ paddingTop: "clamp(40px,6vw,72px)" }}
+            className="flex gap-3.5 flex-wrap"
+            style={{ paddingTop: "clamp(24px,3vw,36px)" }}
           >
             <a
               href="mailto:gowthamaviknesh18@gmail.com"
-              className="pf-cta-dark no-underline inline-flex items-center gap-2.5 bg-navy text-cream py-4 px-6.5 text-[12px] tracking-[0.08em] uppercase"
+              className="pf-cta-dark no-underline inline-flex items-center gap-2.5 bg-navy text-cream py-4 px-6.5 text-[13px] tracking-[0.08em] uppercase"
             >
               <Mail size={15} strokeWidth={2.2} />
               Get in touch
@@ -147,7 +147,7 @@ export default function Hero() {
               href="https://github.com/Gowtham-dev18"
               target="_blank"
               rel="noopener noreferrer"
-              className="pf-cta-orange no-underline inline-flex items-center gap-2.5 bg-orange text-cream py-4 px-6.5 text-[12px] tracking-[0.08em] uppercase"
+              className="pf-ghost no-underline inline-flex items-center gap-2.5 border border-navy/30 text-navy py-4 px-6.5 text-[13px] tracking-[0.08em] uppercase"
             >
               <FaGithub size={15} />
               GitHub

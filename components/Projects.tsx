@@ -49,7 +49,7 @@ export default function Projects() {
       </div>
 
       <h2
-        className="pf-reveal font-bold leading-[1.06] tracking-tight"
+        className="pf-reveal font-heading font-bold leading-[1.06] tracking-[-0.02em]"
         style={{ margin: "0 0 clamp(36px,4vw,56px)", fontSize: "clamp(30px,4vw,52px)" }}
       >
         Things I&apos;ve built.
@@ -77,7 +77,7 @@ export default function Projects() {
                 {proj.number} / {proj.type}
               </div>
               <div
-                className="font-bold tracking-[-0.02em] mb-3.5"
+                className="font-heading font-bold tracking-[-0.02em] mb-3.5"
                 style={{ fontSize: "clamp(20px,2vw,26px)" }}
               >
                 {proj.name}

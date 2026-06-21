@@ -82,7 +82,7 @@ export default function Experience() {
       </div>
 
       <h2
-        className="pf-reveal font-bold leading-[1.06] tracking-tight"
+        className="pf-reveal font-heading font-bold leading-[1.06] tracking-[-0.02em]"
         style={{ margin: "0 0 clamp(36px,4vw,56px)", fontSize: "clamp(30px,4vw,52px)" }}
       >
         Where I&apos;ve worked.
@@ -113,14 +113,14 @@ export default function Experience() {
             >
               {exp.date}
             </div>
-            <div className="text-[17px] font-bold tracking-[-0.01em]">{exp.company}</div>
+            <div className="text-[17px] font-heading font-bold tracking-[-0.02em]">{exp.company}</div>
             <div className="text-[12px] text-subtle mt-1.25">{exp.location}</div>
           </div>
 
           {/* Right: role + bullets + tags */}
           <div>
             <div
-              className="font-bold tracking-[-0.02em] mb-4"
+              className="font-heading font-bold tracking-[-0.02em] mb-4"
               style={{ fontSize: "clamp(18px,1.6vw,22px)" }}
             >
               {exp.role}

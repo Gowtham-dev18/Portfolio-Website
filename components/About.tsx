@@ -21,7 +21,7 @@ export default function About() {
       >
         <div className="pf-reveal">
           <h2
-            className="m-0 mb-7 font-bold leading-[1.06] tracking-tight"
+            className="m-0 mb-7 font-heading font-bold leading-[1.06] tracking-[-0.02em]"
             style={{ fontSize: "clamp(30px,4vw,52px)" }}
           >
             I turn ideas into{" "}
@@ -50,7 +50,7 @@ export default function About() {
             <div className="text-[10px] tracking-[0.14em] uppercase text-dim mb-3.5">
               Identity
             </div>
-            <div className="text-[18px] font-bold tracking-[-0.01em]">
+            <div className="text-[18px] font-heading font-bold tracking-[-0.02em]">
               Gowthama Viknesh K.
             </div>
             <div className="text-[12px] tracking-[0.08em] uppercase text-orange mt-1.5">
@@ -103,7 +103,7 @@ export default function About() {
                 <line x1="1" y1="12" x2="5" y2="12" /><line x1="19" y1="12" x2="23" y2="12" />
               </svg>
             </div>
-            <div className="text-[15px] font-bold tracking-[0.03em] uppercase mb-2.75">
+            <div className="text-[15px] font-heading font-bold tracking-[0.03em] uppercase mb-2.75">
               Solve Real Problems
             </div>
             <p className="m-0 text-[13px] leading-[1.75]" style={{ color: "#aeb7c8" }}>
@@ -122,7 +122,7 @@ export default function About() {
                 <path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z" />
               </svg>
             </div>
-            <div className="text-[15px] font-bold tracking-[0.03em] uppercase mb-2.75">
+            <div className="text-[15px] font-heading font-bold tracking-[0.03em] uppercase mb-2.75">
               Keep It Clean
             </div>
             <p className="m-0 text-[13px] leading-[1.75]" style={{ color: "#ffe1d6" }}>
@@ -144,7 +144,7 @@ export default function About() {
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </div>
-            <div className="text-[15px] font-bold tracking-[0.03em] uppercase mb-2.75">
+            <div className="text-[15px] font-heading font-bold tracking-[0.03em] uppercase mb-2.75">
               Collaborate &amp; Grow
             </div>
             <p className="m-0 text-[13px] leading-[1.75] text-muted">
@@ -173,7 +173,7 @@ export default function About() {
               style={{ borderRight: i < arr.length - 1 ? "1px solid #15233f22" : undefined }}
             >
               <div className="text-[11px] text-orange mb-2">{step.n}</div>
-              <div className="text-[14px] font-bold mb-1.5">{step.title}</div>
+              <div className="text-[14px] font-heading font-bold tracking-[-0.02em] mb-1.5">{step.title}</div>
               <p className="m-0 text-[11px] leading-[1.6] text-subtle">{step.desc}</p>
             </div>
           ))}

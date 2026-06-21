@@ -15,7 +15,7 @@ export default function Contact() {
             </span>
           </div>
           <p
-            className="m-0 font-semibold leading-tight tracking-[-0.02em]"
+            className="m-0 font-heading font-semibold leading-tight tracking-[-0.02em]"
             style={{ fontSize: "clamp(24px,3.4vw,46px)" }}
           >
             Code is important, but{" "}
@@ -48,13 +48,13 @@ export default function Contact() {
           style={{ lineHeight: 0.9, marginBottom: "clamp(34px,4.5vw,56px)" }}
         >
           <h2
-            className="m-0 font-bold tracking-[-0.04em] absolute top-1.25 left-1.25 text-orange opacity-85 pointer-events-none"
+            className="m-0 font-heading font-bold tracking-[-0.04em] absolute top-1.25 left-1.25 text-orange opacity-85 pointer-events-none"
             style={{ fontSize: "clamp(44px,9vw,124px)" }}
           >
             LET&apos;S WORK<br />TOGETHER.
           </h2>
           <h2
-            className="m-0 font-bold tracking-[-0.04em] relative text-navy"
+            className="m-0 font-heading font-bold tracking-[-0.04em] relative text-navy"
             style={{ fontSize: "clamp(44px,9vw,124px)" }}
           >
             LET&apos;S WORK<br />TOGETHER.
@@ -86,7 +86,7 @@ export default function Contact() {
             style={{ padding: "clamp(20px,2vw,28px)" }}
           >
             <span className="flex justify-between items-center">
-              <span className="text-[16px] font-bold tracking-[0.02em]">LinkedIn</span>
+              <span className="text-[16px] font-heading font-bold tracking-[0.02em]">LinkedIn</span>
               <span className="text-orange">↗</span>
             </span>
             <span className="text-[12px] opacity-60">/in/gowthamviknesh</span>
@@ -100,7 +100,7 @@ export default function Contact() {
             style={{ padding: "clamp(20px,2vw,28px)" }}
           >
             <span className="flex justify-between items-center">
-              <span className="text-[16px] font-bold tracking-[0.02em]">GitHub</span>
+              <span className="text-[16px] font-heading font-bold tracking-[0.02em]">GitHub</span>
               <span className="text-orange">↗</span>
             </span>
             <span className="text-[12px] opacity-60">/Gowtham-dev18</span>
@@ -111,7 +111,7 @@ export default function Contact() {
             style={{ padding: "clamp(20px,2vw,28px)" }}
           >
             <span className="flex justify-between items-center">
-              <span className="text-[16px] font-bold tracking-[0.02em]">Based in</span>
+              <span className="text-[16px] font-heading font-bold tracking-[0.02em]">Based in</span>
               <span className="text-orange">⌖</span>
             </span>
             <span className="text-[12px] opacity-60">Coimbatore, Tamil Nadu, India</span>

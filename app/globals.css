@@ -10,18 +10,20 @@
   --color-dim:         #9aa0b0;
   --color-body:        #3a445e;
   --font-brand:        var(--font-edosz), sans-serif;
+  --font-heading:      var(--font-space), sans-serif;
+  --font-mono:         var(--font-jetbrains), monospace;
 }
 
 /* ── Space dark mode — token swap (navy/cream flip as a pair) ── */
 [data-theme="dark"] {
-  --color-navy:        #f2f4fa; /* primary text + inverted surfaces → light */
-  --color-cream:       #000000; /* page background → pitch black */
-  --color-cream-light: #0c0c0f; /* elevated near-black cards */
-  --color-muted:       #aab3c7;
-  --color-subtle:      #98a3bb;
-  --color-dim:         #79849f;
-  --color-body:        #c5cddc;
-  /* --color-orange unchanged (reads well on dark) */
+  --color-navy:        #F4F4F5; /* primary text + inverted surfaces — H1–H3, key numbers (18.2:1) */
+  --color-cream:       #0A0A0B; /* page background — base, never pure black (halation) */
+  --color-cream-light: #141416; /* elevated cards, nav (~3–4% lighter) */
+  --color-muted:       #A1A1AA; /* captions, sub-labels (6.8:1) */
+  --color-subtle:      #71717A; /* meta, large only (3.9:1) */
+  --color-dim:         #52525B; /* disabled / decorative (2.4:1) */
+  --color-body:        #D4D4D8; /* paragraphs, UI text (12.4:1) */
+  --color-orange:      #FF6A33; /* accent — CTAs, eyebrow, stat numbers, link hovers */
 }
 
 * { box-sizing: border-box; }
@@ -35,7 +37,7 @@ body {
   margin: 0;
   padding: 0;
   background: var(--color-cream);
-  font-family: var(--font-spline-mono), 'Spline Sans Mono', monospace;
+  font-family: var(--font-jetbrains), 'JetBrains Mono', monospace;
   color: var(--color-navy);
   -webkit-font-smoothing: antialiased;
   transition: background .4s ease, color .4s ease;
@@ -57,7 +59,7 @@ body {
 #smooth-content {
   overflow-x: hidden;
   width: 100%;
-  padding-top: 84px; /* accounts for fixed navbar */
+  padding-bottom: clamp(96px, 12vh, 128px); /* clearance for the floating bottom navbar */
 }
 
 ::selection {
@@ -193,7 +195,7 @@ body {
   background:
     radial-gradient(1200px 600px at 70% -10%, #0c0c10 0%, transparent 60%),
     radial-gradient(900px 500px at 10% 110%, #080809 0%, transparent 55%),
-    #000000;
+    #0A0A0B;
 }
 [data-theme="dark"] .pf-stars { display: block; }
 
