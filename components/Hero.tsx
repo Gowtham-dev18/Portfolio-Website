@@ -95,25 +95,36 @@ export default function Hero() {
       >
         {/* ── Left column ── */}
         <div className="flex flex-col">
-          <div className="text-[16px] font-bold tracking-[0.18em] uppercase text-orange mb-7">
-            Full Stack Software Engineer
+          <div
+            className="w-fit text-white mb-6.5 overflow-hidden skew-x-12"
+          // style={{ boxShadow: "0 12px 28px -8px rgba(255,90,43,0.7), 5px 5px 0 rgba(255,90,43,0.28)" }}
+          >
+            <div
+              className="pf-shimmer-text px-4 py-1.5 text-[16px] font-black italic uppercase tracking-[0.17em] -skew-x-12"
+              style={{
+                "--sh-base": "var(--color-orange)",
+                "--sh-hi": "#ffc4a3",
+                WebkitTextStroke: "0.45px var(--color-orange)",
+                filter: "drop-shadow(0 0 7px rgba(255,90,43,0.6))",
+              } as React.CSSProperties}
+            >
+              Full Stack Software Engineer
+            </div>
           </div>
 
           {/* Big heading with offset shadow */}
           <div className="relative" style={{ lineHeight: 1.1 }}>
             <h1
-              className="m-0 font-bold font-brand tracking-[0.02em] absolute top-1.5 left-1.5 text-orange opacity-85 pointer-events-none"
+              className="m-0 font-bold font-brand tracking-[0.02em] absolute top-1.5 left-1.5 text-white opacity-85 pointer-events-none"
               style={{ fontSize: "clamp(52px,9.6vw,132px)", wordSpacing: "0.12em" }}
             >
-              SHIP WITH<br />
-              PURPOSE
+              Gowthama Viknesh K
             </h1>
             <h1
-              className="m-0 font-bold font-brand tracking-[0.02em] relative text-navy"
+              className="m-0 font-bold font-brand tracking-[0.02em] relative text-orange pointer-events-none"
               style={{ fontSize: "clamp(52px,9.6vw,132px)", wordSpacing: "0.12em" }}
             >
-              SHIP WITH<br />
-              PURPOSE
+              Gowthama Viknesh K
             </h1>
           </div>
 
@@ -125,8 +136,7 @@ export default function Hero() {
               marginTop: "clamp(28px,4vw,48px)",
             }}
           >
-            I design solutions, build scalable systems, and ship production-grade
-            software — from backend microservices and cloud infrastructure to
+            I design solutions, build scalable systems, and ship production-grade software — from backend microservices and cloud infrastructure to
             polished frontend interfaces serving real users.
           </p>
 

@@ -168,6 +168,30 @@ body {
 .pf-card { transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease; }
 .pf-card:hover { transform: translateY(-4px); border-color: var(--color-orange); box-shadow: 6px 6px 0 var(--color-navy); }
 
+/* ── Text shimmer — a bright band sweeps across the glyphs (Text Shimmer Lines).
+   Base/highlight are variable-driven so it works on any surface (defaults:
+   navy text + orange sweep; override --sh-base/--sh-hi e.g. white on a colored chip). */
+.pf-shimmer-text {
+  background: linear-gradient(
+    110deg,
+    var(--sh-base, var(--color-navy)) 0%, var(--sh-base, var(--color-navy)) 34%,
+    var(--sh-hi, var(--color-orange)) 50%,
+    var(--sh-base, var(--color-navy)) 66%, var(--sh-base, var(--color-navy)) 100%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: pf-shimmer 2.2s linear infinite;
+}
+@keyframes pf-shimmer {
+  to { background-position: -220% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pf-shimmer-text { animation: none; }
+}
+
 /* ── Contact tile hover ── */
 .pf-tile { transition: background .2s ease, color .2s ease, border-color .2s ease; }
 .pf-tile:hover { background: var(--color-navy); color: var(--color-cream); border-color: var(--color-navy); }
